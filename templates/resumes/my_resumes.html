@@ -1,0 +1,212 @@
+<!-- templates/resumes/my_resumes.html -->
+{% extends "base/base.html" %}
+{% load static i18n %}
+
+{% block title %}{% trans "My Resumes" %} - منصة توظيف ذكية{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+
+            <!-- ================= My Resumes Card ================= -->
+            <div class="card mt-3">
+                <div class="card-header">
+                    <h3 class="card-title">
+                        <i class="fas fa-file-alt"></i> {% trans "My Resumes" %}
+                    </h3>
+                    <div class="card-tools">
+                        <a href="{% url 'resumes:upload' %}" class="btn btn-primary btn-sm">
+                            <i class="fas fa-upload"></i> {% trans "Upload New Resume" %}
+                        </a>
+                    </div>
+                </div>
+
+                <div class="card-body">
+
+                    <!-- الإحصائيات -->
+                    <div class="row mb-4">
+                        <div class="col-lg-4 col-6">
+                            <div class="small-box bg-info">
+                                <div class="inner">
+                                    <h3>{{ resumes.count }}</h3>
+                                    <p>{% trans "Total Resumes" %}</p>
+                                </div>
+                                <div class="icon">
+                                    <i class="fas fa-file-alt"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-6">
+                            <div class="small-box bg-success">
+                                <div class="inner">
+                                    <h3>{{ processed_count }}</h3>
+                                    <p>{% trans "Processed" %}</p>
+                                </div>
+                                <div class="icon">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-6">
+                            <div class="small-box bg-warning">
+                                <div class="inner">
+                                    <h3>{{ total_matches }}</h3>
+                                    <p>{% trans "Total Job Matches" %}</p>
+                                </div>
+                                <div class="icon">
+                                    <i class="fas fa-brain"></i>
+                                </div>
+                                <a href="{% url 'matching:my_matches' %}" class="small-box-footer">
+                                    {% trans "View All Matches" %}
+                                    <i class="fas fa-arrow-circle-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- جدول السير الذاتية -->
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead class="thead-light">
+                                <tr>
+                                    <th>{% trans "Filename" %}</th>
+                                    <th>{% trans "Uploaded" %}</th>
+                                    <th>{% trans "Status" %}</th>
+                                    <th>{% trans "Job Matches" %}</th>
+                                    <th>{% trans "Actions" %}</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for resume in resumes %}
+                                <tr>
+                                    <td>
+                                        <a href="{% url 'resumes:detail' pk=resume.id %}">
+                                            {{ resume.original_filename|default:"Untitled Resume" }}
+                                        </a>
+                                    </td>
+                                    <td>{{ resume.created_at|date:"M d, Y" }}</td>
+                                    <td>
+                                        {% if resume.is_processed %}
+                                            <span class="badge badge-success">{% trans "Processed" %}</span>
+                                        {% else %}
+                                            <span class="badge badge-warning">{% trans "Processing..." %}</span>
+                                        {% endif %}
+                                    </td>
+                                    <td>
+                                        {% if resume.match_count > 0 %}
+                                            <span class="badge badge-pill badge-info">{{ resume.match_count }}</span>
+                                        {% else %}
+                                            <span class="text-muted">{% trans "No matches yet" %}</span>
+                                        {% endif %}
+                                    </td>
+                                    <td>
+                                        <a href="{% url 'resumes:detail' pk=resume.id %}" class="btn btn-sm btn-outline-primary">
+                                            <i class="fas fa-eye"></i>
+                                        </a>
+                                        <a href="{% url 'resumes:update' pk=resume.id %}" class="btn btn-sm btn-outline-warning">
+                                            <i class="fas fa-edit"></i>
+                                        </a>
+                                        <a href="{% url 'resumes:delete' pk=resume.id %}" class="btn btn-sm btn-outline-danger">
+                                            <i class="fas fa-trash"></i>
+                                        </a>
+                                        {% if resume.is_processed and resume.match_count > 0 %}
+                                        <a href="{% url 'matching:resume_jobs' resume_id=resume.id %}" class="btn btn-sm btn-info">
+                                            <i class="fas fa-brain"></i> {% trans "Matches" %}
+                                        </a>
+                                        {% endif %}
+                                    </td>
+                                </tr>
+                                {% empty %}
+                                <tr>
+                                    <td colspan="5" class="text-center py-4">
+                                        <p class="text-muted">
+                                            {% trans "You haven't uploaded any resumes yet." %}
+                                        </p>
+                                        <a href="{% url 'resumes:upload' %}" class="btn btn-primary">
+                                            <i class="fas fa-upload"></i> {% trans "Upload Your First Resume" %}
+                                        </a>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+            <!-- ================= End My Resumes Card ================= -->
+
+
+            <!-- ================= Resume Tips (OUTSIDE) ================= -->
+            <div class="card shadow-sm mt-4">
+                <div class="card-body">
+                    <h5>
+                        <i class="bi bi-lightbulb text-warning me-2"></i>
+                        {% trans "Tips for Better Resumes" %}
+                    </h5>
+
+                    <div class="row">
+                        <div class="col-md-4 mb-3">
+                            <div class="d-flex">
+                                <div class="me-3">
+                                    <i class="bi bi-check-circle text-success" style="font-size: 1.5rem;"></i>
+                                </div>
+                                <div>
+                                    <h6>{% trans "Format Matters" %}</h6>
+                                    <p class="small text-muted mb-0">
+                                        {% trans "Use clear headings and bullet points for better parsing." %}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 mb-3">
+                            <div class="d-flex">
+                                <div class="me-3">
+                                    <i class="bi bi-check-circle text-success" style="font-size: 1.5rem;"></i>
+                                </div>
+                                <div>
+                                    <h6>{% trans "Update Regularly" %}</h6>
+                                    <p class="small text-muted mb-0">
+                                        {% trans "Keep your skills and experience up to date for better matches." %}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 mb-3">
+                            <div class="d-flex">
+                                <div class="me-3">
+                                    <i class="bi bi-check-circle text-success" style="font-size: 1.5rem;"></i>
+                                </div>
+                                <div>
+                                    <h6>{% trans "Multiple Versions" %}</h6>
+                                    <p class="small text-muted mb-0">
+                                        {% trans "Upload different resumes tailored for different job types." %}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- ================= End Resume Tips ================= -->
+
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+    .small-box {
+        border-radius: 0.5rem;
+    }
+    .badge-pill {
+        font-size: 1rem;
+    }
+</style>
+{% endblock %}

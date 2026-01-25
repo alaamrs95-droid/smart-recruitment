@@ -1,0 +1,63 @@
+<!-- templates/site/footer.html -->
+{% load i18n static %}
+
+<footer class="bg-dark text-white py-5 mt-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <h5>{% trans "Smart Hiring" %}</h5>
+                <p class="text-muted">
+                    {% trans "Intelligent recruitment platform connecting employers with qualified candidates." %}
+                </p>
+                <div class="social-icons mt-3">
+                    <a href="#" class="text-white me-3"><i class="bi bi-facebook"></i></a>
+                    <a href="#" class="text-white me-3"><i class="bi bi-twitter"></i></a>
+                    <a href="#" class="text-white me-3"><i class="bi bi-linkedin"></i></a>
+                    <a href="#" class="text-white"><i class="bi bi-instagram"></i></a>
+                </div>
+            </div>
+            
+            <div class="col-md-2 mb-4">
+                <h6>{% trans "For Employers" %}</h6>
+                <ul class="list-unstyled">
+                    <li><a href="#" class="text-muted text-decoration-none">{% trans "Post Jobs" %}</a></li>
+                    <li><a href="#" class="text-muted text-decoration-none">{% trans "Find Candidates" %}</a></li>
+                    <li><a href="#" class="text-muted text-decoration-none">{% trans "Pricing" %}</a></li>
+                </ul>
+            </div>
+            
+            <div class="col-md-2 mb-4">
+                <h6>{% trans "For Candidates" %}</h6>
+                <ul class="list-unstyled">
+                    <li><a href="#" class="text-muted text-decoration-none">{% trans "Find Jobs" %}</a></li>
+                    <li><a href="#" class="text-muted text-decoration-none">{% trans "Upload Resume" %}</a></li>
+                    <li><a href="#" class="text-muted text-decoration-none">{% trans "Career Advice" %}</a></li>
+                </ul>
+            </div>
+            
+            <div class="col-md-4 mb-4">
+                <h6>{% trans "Contact Us" %}</h6>
+                <ul class="list-unstyled text-muted">
+                    <li><i class="bi bi-envelope me-2"></i> info@smarthiring.com</li>
+                    <li><i class="bi bi-telephone me-2"></i> +1 (123) 456-7890</li>
+                    <li><i class="bi bi-geo-alt me-2"></i> 123 Street, City, Country</li>
+                </ul>
+            </div>
+        </div>
+        
+        <hr class="bg-secondary">
+        
+        <div class="row">
+            <div class="col-md-6">
+                <p class="mb-0 text-muted">
+                    © {% now "Y" %} {% trans "Smart Hiring. All rights reserved." %}
+                </p>
+            </div>
+            <div class="col-md-6 text-md-end">
+                <a href="#" class="text-muted text-decoration-none me-3">{% trans "Privacy Policy" %}</a>
+                <a href="#" class="text-muted text-decoration-none me-3">{% trans "Terms of Service" %}</a>
+                <a href="#" class="text-muted text-decoration-none">{% trans "Cookies" %}</a>
+            </div>
+        </div>
+    </div>
+</footer>

@@ -1,0 +1,144 @@
+<!-- templates/jobs/job_update.html -->
+{% extends "base/base.html" %}
+{% load static i18n %}
+
+{% block title %}{% trans "Update Job" %} - {{ job.title }} - منصة توظيف ذكية{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-10 col-lg-8">
+            <div class="card card-warning card-outline">
+                <div class="card-header text-center">
+                    <h3 class="mb-0"><i class="fas fa-edit"></i> {% trans "Update Job Posting" %}</h3>
+                </div>
+                <div class="card-body">
+                    <!-- عرض الرسائل -->
+                    {% if messages %}
+                        {% for message in messages %}
+                        <div class="alert alert-{{ message.tags }} alert-dismissible">
+                            <button type="button" class="close" data-dismiss="alert">&times;</button>
+                            {{ message }}
+                        </div>
+                        {% endfor %}
+                    {% endif %}
+
+                    <form method="post" novalidate>
+                        {% csrf_token %}
+                        
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="{{ form.title.id_for_label }}">{% trans "Job Title" %}</label>
+                                    {{ form.title }}
+                                    {% if form.title.errors %}
+                                        <div class="text-danger small">{{ form.title.errors }}</div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="{{ form.education_level.id_for_label }}">{% trans "Education Level" %}</label>
+                                    {{ form.education_level }}
+                                    {% if form.education_level.errors %}
+                                        <div class="text-danger small">{{ form.education_level.errors }}</div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="{{ form.description.id_for_label }}">{% trans "Job Description" %}</label>
+                            {{ form.description }}
+                            {% if form.description.errors %}
+                                <div class="text-danger small">{{ form.description.errors }}</div>
+                            {% endif %}
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>{% trans "Required Skills" %}</label>
+                                    {{ form.required_skills_text }}
+                                    {% if form.required_skills_text.errors %}
+                                        <div class="text-danger small">{{ form.required_skills_text.errors }}</div>
+                                    {% endif %}
+                                    <small class="form-text text-muted">{% trans "Separate with commas" %}</small>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>{% trans "Preferred Skills" %} {% trans "(Optional)" %}</label>
+                                    {{ form.preferred_skills_text }}
+                                    {% if form.preferred_skills_text.errors %}
+                                        <div class="text-danger small">{{ form.preferred_skills_text.errors }}</div>
+                                    {% endif %}
+                                    <small class="form-text text-muted">{% trans "Separate with commas" %}</small>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>{% trans "Required Languages" %}</label>
+                                    {{ form.languages_text }}
+                                    {% if form.languages_text.errors %}
+                                        <div class="text-danger small">{{ form.languages_text.errors }}</div>
+                                    {% endif %}
+                                    <small class="form-text text-muted">{% trans "Separate with commas" %}</small>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="{{ form.experience_years.id_for_label }}">{% trans "Experience Years" %} {% trans "(Optional)" %}</label>
+                                    {{ form.experience_years }}
+                                    {% if form.experience_years.errors %}
+                                        <div class="text-danger small">{{ form.experience_years.errors }}</div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <div class="custom-control custom-switch">
+                                {{ form.is_active }}
+                                <label class="custom-control-label" for="{{ form.is_active.id_for_label }}">
+                                    {% trans "Active (Visible to candidates)" %}
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group text-center mt-4">
+                            <button type="submit" class="btn btn-warning btn-lg btn-block">
+                                <i class="fas fa-save"></i> {% trans "Update Job" %}
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            
+            <!-- back button -->
+            <div class="text-center mt-4">
+                <a href="{% url 'jobs:my_jobs' %}" class="btn btn-outline-secondary">
+                    <i class="fas fa-arrow-left"></i> {% trans "Back to My Jobs" %}
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+    textarea.form-control {
+        min-height: 100px;
+    }
+    .card {
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+</style>
+{% endblock %}

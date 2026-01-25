@@ -1,0 +1,202 @@
+<!-- templates/matching/match_detail.html -->
+{% extends 'base/base.html' %}
+{% load static i18n %}
+
+{% block title %}{% trans "Match Analysis" %} - {{ resume.original_filename }} & {{ job.title }}{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <div class="card mt-3">
+                <div class="card-header text-center bg-{{ match.color_class }}">
+                    <h3 class="card-title text-white"><i class="fas fa-brain"></i> {% trans "AI Match Analysis" %}</h3>
+                    <h2 class="display-4 text-white">{{ match.score }}%</h2>
+                    <h4 class="text-white">{{ match.label }}</h4>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="card card-outline card-primary mb-4">
+                                <div class="card-header">
+                                    <h5>{% trans "Resume" %}</h5>
+                                </div>
+                                <div class="card-body">
+                                    <p><strong>{% trans "Filename:" %}</strong> <a href="{% url 'resumes:detail' pk=resume.id %}">{{ resume.original_filename }}</a></p>
+                                    <p><strong>{% trans "Candidate:" %}</strong> {{ resume.candidate.username }}</p>
+                                    <p><strong>{% trans "Uploaded:" %}</strong> {{ resume.created_at|date:"M d, Y" }}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card card-outline card-info mb-4">
+                                <div class="card-header">
+                                    <h5>{% trans "Job" %}</h5>
+                                </div>
+                                <div class="card-body">
+                                    <p><strong>{% trans "Title:" %}</strong> <a href="{% url 'jobs:detail' pk=job.id %}">{{ job.title }}</a></p>
+                                    <p><strong>{% trans "Employer:" %}</strong> {{ job.employer.username }}</p>
+                                    <p><strong>{% trans "Posted:" %}</strong> {{ job.created_at|date:"M d, Y" }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="text-center mb-4">
+                        <strong>{% trans "Overall Match Score" %}</strong>
+                        <div class="progress" style="height: 3rem;">
+                            <div class="progress-bar bg-{{ match.color_class }}" style="width: {{ match.score }}%; font-size: 1.5rem;">
+                                {{ match.score }}%
+                            </div>
+                        </div>
+                    </div>
+                    
+                    {% if match.reasons %}
+                    <div class="card card-success mb-4">
+                        <div class="card-header">
+                            <h5><i class="fas fa-lightbulb"></i> {% trans "Key Reasons for this Match" %}</h5>
+                        </div>
+                        <div class="card-body">
+                            <ul class="list-group">
+                                {% for reason in match.reasons %}
+                                <li class="list-group-item">{{ reason }}</li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                    {% endif %}
+                    
+                    <div class="row">
+                        <div class="col-md-6">
+                            {% if match.strengths %}
+                            <div class="card card-success mb-4">
+                                <div class="card-header">
+                                    <h5><i class="fas fa-check-circle"></i> {% trans "Strengths" %}</h5>
+                                </div>
+                                <div class="card-body">
+                                    <ul class="list-group list-group-flush">
+                                        {% for strength in match.strengths %}
+                                        <li class="list-group-item text-success">{{ strength }}</li>
+                                        {% endfor %}
+                                    </ul>
+                                </div>
+                            </div>
+                            {% endif %}
+                            
+                            {% if analysis.skills_analysis.required_matched %}
+                            <div class="card card-primary mb-4">
+                                <div class="card-header">
+                                    <h5>{% trans "Matched Required Skills" %}</h5>
+                                </div>
+                                <div class="card-body">
+                                    {% for skill in analysis.skills_analysis.required_matched %}
+                                    <span class="badge badge-pill badge-primary mr-2 mb-2">{{ skill|title }}</span>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                            {% endif %}
+                            
+                            {% if analysis.languages_analysis.matched %}
+                            <div class="card card-info">
+                                <div class="card-header">
+                                    <h5>{% trans "Matched Languages" %}</h5>
+                                </div>
+                                <div class="card-body">
+                                    {% for lang in analysis.languages_analysis.matched %}
+                                    <span class="badge badge-pill badge-info mr-2 mb-2">{{ lang|title }}</span>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                            {% endif %}
+                        </div>
+                        
+                        <div class="col-md-6">
+                            {% if match.weaknesses %}
+                            <div class="card card-danger mb-4">
+                                <div class="card-header">
+                                    <h5><i class="fas fa-exclamation-triangle"></i> {% trans "Areas for Improvement" %}</h5>
+                                </div>
+                                <div class="card-body">
+                                    <ul class="list-group list-group-flush">
+                                        {% for weakness in match.weaknesses %}
+                                        <li class="list-group-item text-danger">{{ weakness }}</li>
+                                        {% endfor %}
+                                    </ul>
+                                </div>
+                            </div>
+                            {% endif %}
+                            
+                            {% if analysis.skills_analysis.required_missing %}
+                            <div class="card card-warning mb-4">
+                                <div class="card-header">
+                                    <h5>{% trans "Missing Required Skills" %}</h5>
+                                </div>
+                                <div class="card-body">
+                                    {% for skill in analysis.skills_analysis.required_missing %}
+                                    <span class="badge badge-pill badge-warning mr-2 mb-2">{{ skill|title }}</span>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                            {% endif %}
+                            
+                            {% if analysis.languages_analysis.missing %}
+                            <div class="card card-secondary">
+                                <div class="card-header">
+                                    <h5>{% trans "Missing Languages" %}</h5>
+                                </div>
+                                <div class="card-body">
+                                    {% for lang in analysis.languages_analysis.missing %}
+                                    <span class="badge badge-pill badge-secondary mr-2 mb-2">{{ lang|title }}</span>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                    
+                    {% if analysis.recommendations %}
+                    <div class="card card-outline card-primary mt-4">
+                        <div class="card-header">
+                            <h5><i class="fas fa-lightbulb"></i> {% trans "Recommendations" %}</h5>
+                        </div>
+                        <div class="card-body">
+                            <ul class="list-group">
+                                {% for rec in analysis.recommendations %}
+                                <li class="list-group-item">{{ rec }}</li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                    {% endif %}
+                    
+                    <div class="text-center mt-4">
+                        {% if can_apply %}
+                        <button class="btn btn-success btn-lg" disabled>{% trans "Apply Now" %}</button> {# placeholder لو عايز تضيف apply #}
+                        {% endif %}
+                        {% if can_contact %}
+                        <button class="btn btn-info btn-lg" disabled>{% trans "Contact Candidate" %}</button> {# placeholder #}
+                        {% endif %}
+                        <a href="{% url 'matching:my_matches' %}" class="btn btn-secondary btn-lg ml-3">
+                            {% trans "Back to Matches" %}
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+    .progress {
+        height: 3rem;
+        font-size: 1.5rem;
+        border-radius: 0.5rem;
+    }
+    .badge-pill {
+        font-size: 1rem;
+        padding: 0.5em 1em;
+    }
+</style>
+{% endblock %}

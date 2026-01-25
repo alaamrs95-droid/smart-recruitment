@@ -1,0 +1,123 @@
+<!-- templates/matching/employer_matches.html -->
+{% extends 'base/base.html' %}
+{% load static i18n custom_filters %}
+
+{% block title %}{% trans "Candidate Matches" %} - منصة توظيف ذكية{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <div class="card mt-3">
+                <div class="card-header">
+                    <h3 class="card-title"><i class="fas fa-users"></i> {% trans "AI Candidate Matches" %}</h3>
+                    <div class="card-tools">
+                        <span class="badge badge-lg badge-success mr-2">{% trans "Excellent:" %} {{ high_count }}</span>
+                        <span class="badge badge-lg badge-warning mr-2">{% trans "Good:" %} {{ medium_count }}</span>
+                        <span class="badge badge-lg badge-danger">{% trans "Moderate:" %} {{ low_count }}</span>
+                    </div>
+                </div>
+                <div class="card-body">
+                    {% if has_jobs %}
+                    <ul class="nav nav-tabs" id="matchTabs" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" id="all-tab" data-toggle="tab" href="#all" role="tab">{% trans "All Matches" %} ({{ total_matches }})</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="high-tab" data-toggle="tab" href="#high" role="tab">{% trans "Excellent" %} ({{ high_count }})</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="medium-tab" data-toggle="tab" href="#medium" role="tab">{% trans "Good" %} ({{ medium_count }})</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="low-tab" data-toggle="tab" href="#low" role="tab">{% trans "Moderate" %} ({{ low_count }})</a>
+                        </li>
+                    </ul>
+                    
+                    <div class="tab-content mt-3" id="matchTabContent">
+                        <div class="tab-pane fade show active" id="all" role="tabpanel">
+                            <div class="row">
+                                {% include "matching/_employer_matches_cards.html" with matches=matches %}
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="high" role="tabpanel">
+                            <div class="row">
+                                {% include "matching/_employer_matches_cards.html" with matches=high_matches %}
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="medium" role="tabpanel">
+                            <div class="row">
+                                {% include "matching/_employer_matches_cards.html" with matches=medium_matches %}
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="low" role="tabpanel">
+                            <div class="row">
+                                {% include "matching/_employer_matches_cards.html" with matches=low_matches %}
+                            </div>
+                        </div>
+                    </div>
+                    {% else %}
+                    <div class="text-center py-5">
+                        <p class="text-muted lead">{% trans "Post a job to see AI-matched candidates!" %}</p>
+                        <a href="{% url 'jobs:create' %}" class="btn btn-primary">{% trans "Create Job" %}</a>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'js/matching-enhanced.js' %}"></script>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+    .progress {
+        height: 1rem;
+        border-radius: 0.5rem;
+    }
+    .match-card {
+        transition: all 0.3s ease;
+        border: 1px solid #dee2e6;
+    }
+    .match-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        border-color: #007bff;
+    }
+    .badge {
+        font-size: 0.75rem;
+        font-weight: 500;
+    }
+    .card-header {
+        border-bottom: 2px solid #f8f9fa;
+    }
+    .progress-bar-striped {
+        background-image: linear-gradient(45deg, rgba(255,255,255,.15) 25%, transparent 25%, transparent 50%, rgba(255,255,255,.15) 50%, rgba(255,255,255,.15) 75%, transparent 75%, transparent);
+        background-size: 1rem 1rem;
+        animation: progress-bar-stripes 1s linear infinite;
+    }
+    @keyframes progress-bar-stripes {
+        0% { background-position: 1rem 0; }
+        100% { background-position: 0 0; }
+    }
+    .nav-tabs .nav-link {
+        border: 1px solid transparent;
+        border-top-left-radius: 0.375rem;
+        border-top-right-radius: 0.375rem;
+        transition: all 0.2s ease;
+    }
+    .nav-tabs .nav-link:hover {
+        background-color: #f8f9fa;
+        border-color: #e9ecef #e9ecef #dee2e6;
+    }
+    .nav-tabs .nav-link.active {
+        font-weight: 600;
+        background-color: #fff;
+        border-color: #dee2e6 #dee2e6 #fff;
+    }
+</style>
+{% endblock %}

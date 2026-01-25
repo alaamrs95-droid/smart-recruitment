@@ -1,0 +1,107 @@
+<!-- templates/resumes/skills_gap_analysis.html -->
+
+
+{% extends 'base/base.html' %}
+{% load static i18n %}
+
+{% block title %}{% trans "Skills Gap Analysis" %}{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <h2 class="mt-3 mb-4">
+                <i class="fas fa-chart-area"></i> {% trans "Skills Gap Analysis" %}
+            </h2>
+        </div>
+    </div>
+    
+    <!-- Coverage Card -->
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="card">
+                <div class="card-header">
+                    <h5>{% trans "Your Skill Coverage" %}</h5>
+                </div>
+                <div class="card-body">
+                    <h3>{{ coverage|floatformat:0 }}%</h3>
+                    <div class="progress">
+                        <div class="progress-bar bg-success" style="width:{{ coverage }}%">
+                            {{ coverage|floatformat:0 }}%
+                        </div>
+                    </div>
+                    <p class="text-muted mt-2">
+                        {% blocktrans %}You have {{ current_skills|length }} out of {{ total_market_skills }} in-demand skills{% endblocktrans %}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Mastered Skills -->
+    <div class="row mt-4">
+        <div class="col-lg-12">
+            <div class="card card-success">
+                <div class="card-header">
+                    <h5>✅ {% trans "Your Strengths" %} ({{ gap_analysis.mastered|length }})</h5>
+                </div>
+                <div class="card-body">
+                    {% for item in gap_analysis.mastered %}
+                    <div class="mb-3">
+                        <div class="d-flex justify-content-between">
+                            <h6>{{ item.skill|title }}</h6>
+                            <span class="badge badge-success">High Demand</span>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar bg-success" 
+                                 style="width:{{ item.market_demand|multiply:2 }}%">
+                            </div>
+                        </div>
+                        <small class="text-muted">{{ item.market_demand }} jobs require this</small>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Skills to Learn -->
+    <div class="row mt-4">
+        <div class="col-lg-12">
+            <div class="card card-warning">
+                <div class="card-header">
+                    <h5>🎯 {% trans "Priority Skills to Learn" %} ({{ gap_analysis.learn|length }})</h5>
+                </div>
+                <div class="card-body">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>{% trans "Skill" %}</th>
+                                <th>{% trans "Demand" %}</th>
+                                <th>{% trans "Difficulty" %}</th>
+                                <th>{% trans "Learning Time" %}</th>
+                                <th>{% trans "Salary Impact" %}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for item in gap_analysis.learn|slice:":10" %}
+                            <tr>
+                                <td><strong>{{ item.skill|title }}</strong></td>
+                                <td>{{ item.market_demand }} jobs</td>
+                                <td>
+                                    <span class="badge badge-{% if item.difficulty == 'Easy' %}success{% elif item.difficulty == 'Hard' %}danger{% else %}warning{% endif %}">
+                                        {{ item.difficulty }}
+                                    </span>
+                                </td>
+                                <td>{{ item.learning_time }}</td>
+                                <td><span class="text-success">{{ item.salary_impact }}</span></td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

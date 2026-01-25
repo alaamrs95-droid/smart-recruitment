@@ -1,0 +1,121 @@
+<!-- templates/jobs/job_detail.html -->
+{% extends "base/base.html" %}
+{% load static i18n %}
+
+{% block title %}{{ job.title }} - منصة توظيف ذكية{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <div class="card mt-3">
+                <div class="card-header">
+                    <h3 class="card-title"><i class="fas fa-briefcase"></i> {{ job.title }}</h3>
+                    <div class="card-tools">
+                        {% if can_edit %}
+                        <a href="{% url 'jobs:update' pk=job.id %}" class="btn btn-warning btn-sm">
+                            <i class="fas fa-edit"></i> {% trans "Edit" %}
+                        </a>
+                        <a href="{% url 'jobs:delete' pk=job.id %}" class="btn btn-danger btn-sm">
+                            <i class="fas fa-trash"></i> {% trans "Delete" %}
+                        </a>
+                        <a href="{% url 'matching:job_matches' pk=job.id %}" class="btn btn-info btn-sm">
+                            <i class="fas fa-brain"></i> {% trans "View AI Matches" %}
+                        </a>
+                        {% endif %}
+                        {% if not can_edit and user.role == 'candidate' %}
+                        <button class="btn btn-success btn-sm" disabled>{% trans "Apply" %}</button> {# placeholder لو عايز تضيف apply لاحقاً #}
+                        {% endif %}
+                        <a href="{% url 'jobs:list' %}" class="btn btn-secondary btn-sm">
+                            <i class="fas fa-arrow-left"></i> {% trans "Back to Jobs" %}
+                        </a>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <h4>{% trans "Job Description" %}</h4>
+                            <p class="text-muted">{{ job.description|linebreaks }}</p>
+                            
+                            <hr>
+                            
+                            <!-- Required Skills -->
+                            <h5><i class="fas fa-tools"></i> {% trans "Required Skills" %}</h5>
+                            {% if job.required_skills %}
+                            <div class="mb-3">
+                                {% for skill in job.required_skills %}
+                                <span class="badge badge-pill badge-danger mr-1">{{ skill }}</span>
+                                {% endfor %}
+                            </div>
+                            {% else %}
+                            <p class="text-muted">{% trans "No required skills specified." %}</p>
+                            {% endif %}
+                            
+                            <!-- Preferred Skills -->
+                            <h5><i class="fas fa-star"></i> {% trans "Preferred Skills" %}</h5>
+                            {% if job.preferred_skills %}
+                            <div class="mb-3">
+                                {% for skill in job.preferred_skills %}
+                                <span class="badge badge-pill badge-warning mr-1">{{ skill }}</span>
+                                {% endfor %}
+                            </div>
+                            {% else %}
+                            <p class="text-muted">{% trans "No preferred skills." %}</p>
+                            {% endif %}
+                            
+                            <!-- Languages -->
+                            <h5><i class="fas fa-globe"></i> {% trans "Required Languages" %}</h5>
+                            {% if job.languages %}
+                            <div class="mb-3">
+                                {% for lang in job.languages %}
+                                <span class="badge badge-pill badge-info mr-1">{{ lang }}</span>
+                                {% endfor %}
+                            </div>
+                            {% else %}
+                            <p class="text-muted">{% trans "No languages specified." %}</p>
+                            {% endif %}
+                        </div>
+                        
+                        <div class="col-md-4">
+                            <div class="card card-outline card-secondary">
+                                <div class="card-header">
+                                    <h5>{% trans "Job Information" %}</h5>
+                                </div>
+                                <div class="card-body">
+                                    <p><strong>{% trans "Employer:" %}</strong> {{ job.employer.username }}</p>
+                                    <p><strong>{% trans "Posted:" %}</strong> {{ job.created_at|date:"M d, Y" }}</p>
+                                    <p><strong>{% trans "Status:" %}</strong>
+                                        {% if job.is_active %}
+                                        <span class="badge badge-success">{% trans "Active" %}</span>
+                                        {% else %}
+                                        <span class="badge badge-secondary">{% trans "Inactive" %}</span>
+                                        {% endif %}
+                                    </p>
+                                    {% if job.education_level %}
+                                    <p><strong>{% trans "Education Level:" %}</strong> {{ job.education_level }}</p>
+                                    {% endif %}
+                                    {% if job.experience_years %}
+                                    <p><strong>{% trans "Experience Required:" %}</strong> {{ job.experience_years }} {% trans "years" %}</p>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+    .badge-pill {
+        font-size: 0.95rem;
+        padding: 0.5em 0.8em;
+    }
+    .card {
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+</style>
+{% endblock %}

@@ -1,0 +1,113 @@
+<!-- templates/matching/job_resumes_matches.html -->
+{% extends 'base/base.html' %}
+{% load static i18n %}
+
+{% block title %}{% trans "Candidate Matches for Job" %} - {{ job.title }} {% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <div class="card mt-3">
+                <div class="card-header">
+                    <h3 class="card-title"><i class="fas fa-brain"></i> {% trans "AI Candidate Matches for" %} "{{ job.title }}"</h3>
+                    <div class="card-tools">
+                        <span class="badge badge-info">{% trans "Total Resumes:" %} {{ total_resumes }}</span>
+                        <span class="badge badge-success ml-2">{% trans "Matched:" %} {{ matched_resumes }}</span>
+                        <a href="{% url 'jobs:detail' pk=job.id %}" class="btn btn-secondary btn-sm ml-3">
+                            <i class="fas fa-arrow-left"></i> {% trans "Back to Job" %}
+                        </a>
+                    </div>
+                </div>
+                <div class="card-body">
+                    {% if matches %}
+                    <div class="row">
+                        {% for item in matches %}
+                        <div class="col-md-6 col-lg-4 mb-4">
+                            <div class="card h-100 border-left-{{ item.match.color_class }}">
+                                <div class="card-header">
+                                    <h5 class="card-title mb-0">
+                                        <a href="{% url 'resumes:detail' resume_id=item.resume.id %}">{{ item.resume.original_filename }}</a>
+                                    </h5>
+                                    <small class="text-muted">{{ item.resume.candidate.username }}</small>
+                                </div>
+                                <div class="card-body">
+                                    <div class="mb-3">
+                                        <strong>{% trans "Match Score:" %}</strong>
+                                        <div class="progress" style="height: 1.5rem;">
+                                            <div class="progress-bar bg-{{ item.match.color_class }}" style="width: {{ item.match.score }}%">
+                                                {{ item.match.score }}%
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    {% if item.match.reasons %}
+                                    <strong>{% trans "Key Reasons:" %}</strong>
+                                    <ul class="list-unstyled">
+                                        {% for reason in item.match.reasons %}
+                                        <li>{{ reason }}</li>
+                                        {% endfor %}
+                                    </ul>
+                                    {% endif %}
+                                    
+                                    {% if item.match.strengths %}
+                                    <strong>{% trans "Candidate Strengths:" %}</strong>
+                                    <ul class="list-unstyled text-success">
+                                        {% for strength in item.match.strengths %}
+                                        <li><i class="fas fa-check"></i> {{ strength }}</li>
+                                        {% endfor %}
+                                    </ul>
+                                    {% endif %}
+                                    
+                                    {% if item.match.weaknesses %}
+                                    <strong>{% trans "Gaps:" %}</strong>
+                                    <ul class="list-unstyled text-danger">
+                                        {% for weakness in item.match.weaknesses %}
+                                        <li><i class="fas fa-times"></i> {{ weakness }}</li>
+                                        {% endfor %}
+                                    </ul>
+                                    {% endif %}
+                                </div>
+                                <div class="card-footer text-center">
+                                    <a href="{% url 'matching:match_detail' resume_id=item.resume.id job_id=job.id %}" class="btn btn-sm btn-info">
+                                        {% trans "Full Analysis" %}
+                                    </a>
+                                    <a href="{% url 'resumes:detail' pk=item.resume.id %}" class="btn btn-sm btn-primary">
+                                        {% trans "View Resume" %}
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    
+                    <!-- Top matches summary -->
+                    {% if top_matches %}
+                    <h4 class="mt-5">{% trans "Top 10 Matches" %}</h4>
+                    <div class="row">
+                        {% include "matching/_employer_matches_cards.html" with matches=top_matches %}
+                    </div>
+                    {% endif %}
+                    {% else %}
+                    <div class="text-center py-5">
+                        <p class="text-muted lead">{% trans "No matching candidates found for this job." %}</p>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+    .progress {
+        border-radius: 0.5rem;
+    }
+    .card:hover {
+        transform: translateY(-5px);
+        transition: 0.2s;
+    }
+</style>
+{% endblock %}

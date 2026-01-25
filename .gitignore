@@ -1,0 +1,39 @@
+# =====================
+# Python
+# =====================
+__pycache__/
+*.py[cod]
+*$py.class
+
+# =====================
+# Virtual Environment
+# =====================
+venv25/
+.env
+
+# =====================
+# Django
+# =====================
+*.log
+db.sqlite3
+media/
+staticfiles/
+local_settings.py
+
+# =====================
+# PostgreSQL
+# =====================
+*.sql
+*.dump
+
+# =====================
+# IDEs
+# =====================
+.vscode/
+.idea/
+
+# =====================
+# OS (Windows / Mac)
+# =====================
+Thumbs.db
+.DS_Store

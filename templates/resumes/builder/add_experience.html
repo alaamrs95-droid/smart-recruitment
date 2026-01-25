@@ -1,0 +1,183 @@
+<!-- templates/resumes/builder/add_experience.html -->
+<!-- تم إنشاء هذا القالب لإضافة خبرة عمل جديدة -->
+{% extends 'base/base.html' %}
+{% load static i18n %}
+
+{% block title %}{% trans "Add Work Experience" %} - {{ resume.title }}{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <div class="card mt-3">
+                <div class="card-header">
+                    <h3 class="card-title mb-0">
+                        <i class="fas fa-briefcase mr-2"></i>{% trans "Add Work Experience" %}
+                    </h3>
+                    <div class="card-tools">
+                        <a href="{% url 'resumes_builder:resume_detail' pk=resume.id %}" class="btn btn-secondary">
+                            <i class="fas fa-arrow-left mr-2"></i>{% trans "Back to Resume" %}
+                        </a>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <form method="post">
+                        {% csrf_token %}
+                        
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="{{ form.company.id_for_label }}">{{ form.company.label }} *</label>
+                                    {{ form.company }}
+                                    {% if form.company.errors %}
+                                    <div class="invalid-feedback d-block">
+                                        {% for error in form.company.errors %}
+                                        <span>{{ error }}</span>
+                                        {% endfor %}
+                                    </div>
+                                    {% endif %}
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="{{ form.position.id_for_label }}">{{ form.position.label }} *</label>
+                                    {{ form.position }}
+                                    {% if form.position.errors %}
+                                    <div class="invalid-feedback d-block">
+                                        {% for error in form.position.errors %}
+                                        <span>{{ error }}</span>
+                                        {% endfor %}
+                                    </div>
+                                    {% endif %}
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="{{ form.start_date.id_for_label }}">{{ form.start_date.label }} *</label>
+                                    {{ form.start_date }}
+                                    {% if form.start_date.errors %}
+                                    <div class="invalid-feedback d-block">
+                                        {% for error in form.start_date.errors %}
+                                        <span>{{ error }}</span>
+                                        {% endfor %}
+                                    </div>
+                                    {% endif %}
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="{{ form.end_date.id_for_label }}">{{ form.end_date.label }}</label>
+                                    {{ form.end_date }}
+                                    {% if form.end_date.errors %}
+                                    <div class="invalid-feedback d-block">
+                                        {% for error in form.end_date.errors %}
+                                        <span>{{ error }}</span>
+                                        {% endfor %}
+                                    </div>
+                                    {% endif %}
+                                    <small class="form-text text-muted">
+                                        {% trans "Leave empty if you currently work here" %}
+                                    </small>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <div class="custom-control custom-checkbox mt-4">
+                                        {{ form.current_job }}
+                                        <label class="custom-control-label" for="{{ form.current_job.id_for_label }}">
+                                            {{ form.current_job.label }}
+                                        </label>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="{{ form.description.id_for_label }}">{{ form.description.label }} *</label>
+                                    {{ form.description }}
+                                    {% if form.description.errors %}
+                                    <div class="invalid-feedback d-block">
+                                        {% for error in form.description.errors %}
+                                        <span>{{ error }}</span>
+                                        {% endfor %}
+                                    </div>
+                                    {% endif %}
+                                    <small class="form-text text-muted">
+                                        {% trans "Describe your responsibilities and daily tasks" %}
+                                    </small>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="{{ form.achievements.id_for_label }}">{{ form.achievements.label }}</label>
+                                    {{ form.achievements }}
+                                    {% if form.achievements.errors %}
+                                    <div class="invalid-feedback d-block">
+                                        {% for error in form.achievements.errors %}
+                                        <span>{{ error }}</span>
+                                        {% endfor %}
+                                    </div>
+                                    {% endif %}
+                                    <small class="form-text text-muted">
+                                        {% trans "Highlight your key achievements and accomplishments" %}
+                                    </small>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="row mt-4">
+                            <div class="col-12">
+                                <div class="btn-group">
+                                    <button type="submit" class="btn btn-primary">
+                                        <i class="fas fa-save mr-2"></i>{% trans "Add Experience" %}
+                                    </button>
+                                    <a href="{% url 'resumes_builder:resume_detail' pk=resume.id %}" class="btn btn-secondary">
+                                        <i class="fas fa-times mr-2"></i>{% trans "Cancel" %}
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+.form-group {
+    margin-bottom: 1.5rem;
+}
+.form-group label {
+    font-weight: 600;
+    color: #495057;
+}
+.invalid-feedback {
+    display: block;
+    width: 100%;
+    margin-top: 0.25rem;
+    font-size: 80%;
+    color: #dc3545;
+}
+.custom-control-label {
+    padding-top: 0.25rem;
+}
+</style>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+$(document).ready(function() {
+    // Handle current job checkbox
+    $('#{{ form.current_job.id_for_label }}').change(function() {
+        if ($(this).is(':checked')) {
+            $('#{{ form.end_date.id_for_label }}').val('').prop('disabled', true);
+        } else {
+            $('#{{ form.end_date.id_for_label }}').prop('disabled', false);
+        }
+    });
+    
+    // Initialize state
+    if ($('#{{ form.current_job.id_for_label }}').is(':checked')) {
+        $('#{{ form.end_date.id_for_label }}').prop('disabled', true);
+    }
+});
+</script>
+{% endblock %}

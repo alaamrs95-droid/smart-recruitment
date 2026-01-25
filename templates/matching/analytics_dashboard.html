@@ -1,0 +1,157 @@
+<!-- templates/matching/analytics_dashboard.html -->
+ 
+{% extends 'base/base.html' %}
+{% load static i18n %}
+
+{% block title %}Analytics Dashboard{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <h2 class="mt-3 mb-4">
+                <i class="fas fa-chart-line"></i> {% trans "Your Analytics" %}</h2>
+        </div>
+    </div>
+    
+    <!-- Stats Row -->
+    <div class="row">
+        <div class="col-lg-3 col-md-6">
+            <div class="small-box bg-info">
+                <div class="inner">
+                                        <h3>{{ resume_stats.total }}</h3>
+                    <h3>{{ match_stats.total_matches }}</h3>
+                    <p>{% trans "Total Matches" %}</p>
+                </div>
+                <div class="icon"><i class="fas fa-brain"></i></div>
+            </div>
+        </div>
+        
+        <div class="col-lg-3 col-md-6">
+            <div class="small-box bg-success">
+                <div class="inner">
+                    <h3>{{ match_stats.average_score|floatformat:0 }}%</h3>
+                    <p>{% trans "Average Score" %}</p>
+                </div>
+                <div class="icon"><i class="fas fa-star"></i></div>
+            </div>
+        </div>
+        
+        <div class="col-lg-3 col-md-6">
+            <div class="small-box bg-warning">
+                <div class="inner">
+                    <h3>{{ app_stats.total }}</h3>
+                                        <h3>{{ match_stats.excellent }}</h3>
+                    <p>{% trans "Applications" %}</p>
+                </div>
+                <div class="icon"><i class="fas fa-paper-plane"></i></div>
+            </div>
+        </div>
+        
+        <div class="col-lg-3 col-md-6">
+            <div class="small-box bg-danger">
+                <div class="inner">
+                                        <h3>{{ app_stats.total }}</h3>
+                    <h3>{{ resume_stats.average_completeness|floatformat:0 }}%</h3>
+                    <p>{% trans "Profile Complete" %}</p>
+                </div>
+                <div class="icon"><i class="fas fa-check-circle"></i></div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Charts Row -->
+    <div class="row mt-4">
+        <div class="col-lg-6">
+            <div class="card">
+                <div class="card-header">
+                    <h5>{% trans "Match Score Distribution" %}</h5>
+                </div>
+                <div class="card-body">
+                    <canvas id="matchChart"></canvas>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-lg-6">
+            <div class="card">
+                <div class="card-header">
+                    <h5>{% trans "Application Status" %}</h5>
+                </div>
+                <div class="card-body">
+                    <canvas id="appChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Skills Table -->
+    <div class="row mt-4">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-header">
+                    <h5>{% trans "Your Top Skills" %}</h5>
+                </div>
+                <div class="card-body">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>{% trans "Skill" %}</th>
+                                                                <th>{% trans "You Have It" %}</th>
+                                <th>{% trans "Market Demand" %}</th>
+                                <th>{% trans "Demand %" %}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for skill, demand in top_skills %}
+                            <tr>
+                                <td><strong>{{ skill }}</strong></td>
+                                <td>{{ demand }} jobs</td>
+                                <td><div class="progress" style="height: 1rem;">
+                                        <div class="progress-bar" style="width:{{ demand|add:0 }}%">
+                                            {{ demand|add:0 }}%
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@3/dist/chart.min.js"></script>
+<script>
+    const chartData = {{ chart_data|safe }};
+    
+    // Match Chart
+    const matchCtx = document.getElementById('matchChart').getContext('2d');
+    new Chart(matchCtx, {
+        type: 'doughnut',
+        data: {
+            labels: ['Excellent (80+)', 'Good (60-79)', 'Fair (40-59)'],
+            datasets: [{
+                data: [{{ match_stats.excellent }}, {{ match_stats.good }}, {{ match_stats.fair }}],
+                backgroundColor: ['#28a745', '#ffc107', '#fd7e14']
+            }]
+        }
+    });
+    
+    // Application Chart
+    const appCtx = document.getElementById('appChart').getContext('2d');
+    new Chart(appCtx, {
+        type: 'pie',
+        data: {
+            labels: ['Pending', 'Accepted', 'Rejected'],
+            datasets: [{
+                data: [{{ app_stats.pending }}, {{ app_stats.accepted }}, {{ app_stats.rejected }}],
+                backgroundColor: ['#ffc107', '#28a745', '#dc3545']
+            }]
+        }
+    });
+</script>
+{% endblock %}
+

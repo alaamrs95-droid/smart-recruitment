@@ -1,0 +1,200 @@
+<!-- templates/resumes/builder/add_education.html -->
+<!-- تم إنشاء هذا القالب لإضافة تعليم -->
+{% extends "base/base.html" %}
+{% load static i18n custom_filters %}
+
+{% block title %}{{ title }} - منصة توظيف ذكية{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <div class="card mt-3">
+                <div class="card-header">
+                    <h3 class="card-title">
+                        <i class="fas fa-graduation-cap mr-2"></i>{{ title }}
+                    </h3>
+                    <div class="card-tools">
+                        <a href="{% url 'resumes_builder:resume_detail' pk=resume.id %}" class="btn btn-sm btn-secondary">
+                            <i class="fas fa-arrow-left mr-1"></i>{% trans "Back to Resume" %}
+                        </a>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <form method="post">
+                        {% csrf_token %}
+                        
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="{{ form.institution.id_for_label }}">{% trans "Institution" %} *</label>
+                                    {{ form.institution }}
+                                    {% if form.institution.errors %}
+                                    <div class="text-danger">
+                                        {{ form.institution.errors }}
+                                    </div>
+                                    {% endif %}
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="{{ form.degree.id_for_label }}">{% trans "Degree" %} *</label>
+                                    {{ form.degree }}
+                                    {% if form.degree.errors %}
+                                    <div class="text-danger">
+                                        {{ form.degree.errors }}
+                                    </div>
+                                    {% endif %}
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="{{ form.degree_type.id_for_label }}">{% trans "Degree Type" %}</label>
+                                    {{ form.degree_type }}
+                                    {% if form.degree_type.errors %}
+                                    <div class="text-danger">
+                                        {{ form.degree_type.errors }}
+                                    </div>
+                                    {% endif %}
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="{{ form.field_of_study.id_for_label }}">{% trans "Field of Study" %} *</label>
+                                    {{ form.field_of_study }}
+                                    {% if form.field_of_study.errors %}
+                                    <div class="text-danger">
+                                        {{ form.field_of_study.errors }}
+                                    </div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="{{ form.start_date.id_for_label }}">{% trans "Start Date" %} *</label>
+                                            {{ form.start_date }}
+                                            {% if form.start_date.errors %}
+                                            <div class="text-danger">
+                                                {{ form.start_date.errors }}
+                                            </div>
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="{{ form.end_date.id_for_label }}">{% trans "End Date" %}</label>
+                                            {{ form.end_date }}
+                                            {% if form.end_date.errors %}
+                                            <div class="text-danger">
+                                                {{ form.end_date.errors }}
+                                            </div>
+                                            {% endif %}
+                                            <small class="form-text text-muted">
+                                                {% trans "Leave empty if currently studying" %}
+                                            </small>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <div class="custom-control custom-switch">
+                                        {{ form.current_study }}
+                                        <label for="{{ form.current_study.id_for_label }}" class="custom-control-label">
+                                            {% trans "Currently studying" %}
+                                        </label>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="{{ form.gpa.id_for_label }}">{% trans "GPA" %}</label>
+                                    {{ form.gpa }}
+                                    {% if form.gpa.errors %}
+                                    <div class="text-danger">
+                                        {{ form.gpa.errors }}
+                                    </div>
+                                    {% endif %}
+                                    <small class="form-text text-muted">
+                                        {% trans "Optional: e.g., 3.8/4.0" %}
+                                    </small>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="{{ form.description.id_for_label }}">{% trans "Description" %}</label>
+                                    {{ form.description }}
+                                    {% if form.description.errors %}
+                                    <div class="text-danger">
+                                        {{ form.description.errors }}
+                                    </div>
+                                    {% endif %}
+                                    <small class="form-text text-muted">
+                                        {% trans "Additional details about your education" %}
+                                    </small>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="row mt-3">
+                            <div class="col-12">
+                                <div class="d-flex justify-content-between">
+                                    <a href="{% url 'resumes_builder:resume_detail' pk=resume.id %}" class="btn btn-secondary">
+                                        <i class="fas fa-times mr-1"></i>{% trans "Cancel" %}
+                                    </a>
+                                    <button type="submit" class="btn btn-primary">
+                                        <i class="fas fa-plus mr-1"></i>{% trans "Add Education" %}
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // تحسين واجهة المستخدم للنموذج
+    const formFields = ['institution', 'degree', 'field_of_study', 'start_date', 'end_date', 'gpa', 'description'];
+    
+    formFields.forEach(fieldName => {
+        const field = document.getElementById('{{ form.institution.id_for_label }}'.replace('institution', fieldName));
+        if (field) {
+            field.classList.add('form-control');
+        }
+    });
+    
+    // تعديل حقول التاريخ
+    const startDate = document.getElementById('{{ form.start_date.id_for_label }}');
+    const endDate = document.getElementById('{{ form.end_date.id_for_label }}');
+    const currentStudy = document.getElementById('{{ form.current_study.id_for_label }}');
+    
+    if (startDate) {
+        startDate.type = 'date';
+    }
+    
+    if (endDate) {
+        endDate.type = 'date';
+    }
+    
+    if (currentStudy) {
+        currentStudy.addEventListener('change', function() {
+            if (this.checked) {
+                endDate.value = '';
+                endDate.disabled = true;
+            } else {
+                endDate.disabled = false;
+            }
+        });
+    }
+    
+    // تعديل حقل الوصف
+    const description = document.getElementById('{{ form.description.id_for_label }}');
+    if (description) {
+        description.rows = 3;
+    }
+});
+</script>
+{% endblock %}

@@ -1,0 +1,212 @@
+<!-- templates/accounts/dashboard_candidate.html -->
+{% extends "base/base.html" %}
+{% load static i18n custom_filters %}
+
+{% block title %}{% trans "Candidate Dashboard" %} - منصة توظيف ذكية{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <div class="card mt-3">
+                <div class="card-header">
+                    <h3 class="card-title"><i class="fas fa-tachometer-alt"></i> {% trans "Welcome back," %} {{ user.username }}!</h3>
+                    <div class="card-tools">
+                        <!-- تم التعديل: إضافة أزرار للسير الذاتية المرفوعة والمبنية -->
+                        <a href="{% url 'resumes:upload' %}" class="btn btn-primary btn-sm">
+                            <i class="fas fa-upload"></i> {% trans "Upload Resume" %}
+                        </a>
+                        <a href="{% url 'resumes_builder:resume_list' %}" class="btn btn-success btn-sm ml-2">
+                            <i class="fas fa-edit"></i> {% trans "Build Resume" %}
+                        </a>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <!-- إحصائية السير الذاتية -->
+                        <div class="col-lg-3 col-6">
+                            <div class="info-box">
+                                <span class="info-box-icon bg-info"><i class="fas fa-user-circle"></i></span>
+                                <div class="info-box-content">
+                                    <span class="info-box-text">{% trans "Resume Profile" %}</span>
+                                    <span class="info-box-number">
+                                        <a href="{% url 'resumes:profile' %}" class="btn btn-sm btn-outline-info">
+                                            <i class="fas fa-cog mr-1"></i>{% trans "Manage" %}
+                                        </a>
+                                    </span>
+                                </div>
+                            </div>    
+                        </div>
+                        <!-- إحصائية السير المعالجة -->
+                        <div class="col-lg-3 col-6">
+                            <div class="small-box bg-success">
+                                <div class="inner">
+                                    <h3>{{ processed_resumes_count }}</h3>
+                                    <p>{% trans "Processed Resumes" %}</p>
+                                </div>
+                                <div class="icon">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- إحصائية المطابقات -->
+                        <div class="col-lg-3 col-6">
+                            <div class="small-box bg-warning">
+                                <div class="inner">
+                                    <h3>{{ matches_count }}</h3>
+                                    <p>{% trans "Total Matches" %}</p>
+                                </div>
+                                <div class="icon">
+                                    <i class="fas fa-brain"></i>
+                                </div>
+                                <a href="{% url 'matching:my_matches' %}" class="small-box-footer">
+                                    {% trans "View All Matches" %} <i class="fas fa-arrow-circle-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <!-- إحصائية المطابقات الممتازة -->
+                        <div class="col-lg-3 col-6">
+                            <div class="small-box bg-danger">
+                                <div class="inner">
+                                    <h3>{{ excellent_matches_count }}</h3>
+                                    <p>{% trans "Excellent Matches" %}</p>
+                                </div>
+                                <div class="icon">
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <a href="{% url 'matching:my_matches' %}" class="small-box-footer">
+                                    {% trans "View Matches" %} <i class="fas fa-arrow-circle-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- إضافة Completeness Card -->
+                    <div class="row">
+                        <div class="col-lg-3 col-6 mt-4">
+                            <div class="card card-outline card-primary">
+                                <div class="card-header">
+                                    <h5 class="card-title">{% trans "Profile Completeness" %}</h5>
+                                </div>
+                                <div class="card-body text-center">
+                                    <h3>{{ average_completeness }}%</h3>
+                                    <div class="progress">
+                                        <div class="progress-bar" style="width:{{ average_completeness }}%">
+                                            {{ average_completeness }}%
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Top Demanded Skills -->
+                        <div class="col-lg-12 mt-4">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5>{% trans "Top Skills to Learn" %}</h5>
+                                </div>
+                                <div class="card-body">
+                                    {% for skill, count in missing_skills %}
+                                    <div class="mb-2">
+                                        <small class="text-muted">{{ skill }}</small>
+                                        <div class="progress" style="height: 0.5rem;">
+                                            <div class="progress-bar bg-warning" style="width:{{ count|multiply:20 }}%"></div>
+                                        </div>
+                                        <small class="text-muted">{{ count }} {% trans "jobs need this" %}</small>
+                                    </div>
+                                    {% empty %}
+                                    <p class="text-center">{% trans "No missing skills identified." %}</p>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- الوظائف الحديثة -->
+                    <div class="row mt-4">
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h3 class="card-title">{% trans "Recent Jobs" %}</h3>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        {% for job in recent_jobs %}
+                                        <div class="col-md-4">
+                                            <div class="card card-outline card-primary">
+                                                <div class="card-header">
+                                                    <h5 class="card-title"><a href="{% url 'jobs:detail' pk=job.id %}">{{ job.title }}</a></h5>
+                                                </div>
+                                                <div class="card-body">
+                                                    <p class="text-muted">{{ job.employer.username }} • {{ job.created_at|date:"M d, Y" }}</p>
+                                                    <p>{{ job.description|truncatewords:20 }}</p>
+                                                </div>
+                                                <div class="card-footer">
+                                                    <a href="{% url 'jobs:detail' pk=job.id %}" class="btn btn-sm btn-primary">{% trans "View Details" %}</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        {% empty %}
+                                        <p class="text-center col-12">{% trans "No recent jobs available." %}</p>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- الوظائف الموصى بها -->
+                    <div class="row mt-4">
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h3 class="card-title">{% trans "Recommended Jobs for You" %}</h3>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        {% for job in recommended_jobs %}
+                                        <div class="col-md-4">
+                                            <div class="card card-outline card-success">
+                                                <div class="card-header">
+                                                    <h5 class="card-title"><a href="{% url 'jobs:detail' pk=job.id %}">{{ job.title }}</a></h5>
+                                                </div>
+                                                <div class="card-body">
+                                                    <p class="text-muted">{{ job.employer.username }}</p>
+                                                    <p>{{ job.description|truncatewords:15 }}</p>
+                                                </div>
+                                                <div class="card-footer text-center">
+                                                    <span class="badge badge-success">{% trans "AI Recommended" %}</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        {% empty %}
+                                        <p class="text-center col-12">{% trans "Upload a resume to get personalized recommendations!" %}</p>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+    .small-box {
+        border-radius: 0.5rem;
+    }
+    .card-title a {
+        color: inherit;
+    }
+    .card-title a:hover {
+        text-decoration: underline;
+    }
+</style>
+{% endblock %}

@@ -1,0 +1,194 @@
+<!-- templates/resumes/builder/add_project.html -->
+<!-- تم إنشاء هذا القالب لإضافة مشروع -->
+{% extends "base/base.html" %}
+{% load static i18n custom_filters %}
+
+{% block title %}{{ title }} - منصة توظيف ذكية{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <div class="card mt-3">
+                <div class="card-header">
+                    <h3 class="card-title">
+                        <i class="fas fa-project-diagram mr-2"></i>{{ title }}
+                    </h3>
+                    <div class="card-tools">
+                        <a href="{% url 'resumes_builder:resume_detail' pk=resume.id %}" class="btn btn-sm btn-secondary">
+                            <i class="fas fa-arrow-left mr-1"></i>{% trans "Back to Resume" %}
+                        </a>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <form method="post">
+                        {% csrf_token %}
+                        
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="{{ form.name.id_for_label }}">{% trans "Project Name" %} *</label>
+                                    {{ form.name }}
+                                    {% if form.name.errors %}
+                                    <div class="text-danger">
+                                        {{ form.name.errors }}
+                                    </div>
+                                    {% endif %}
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="{{ form.technologies.id_for_label }}">{% trans "Technologies Used" %} *</label>
+                                    {{ form.technologies }}
+                                    {% if form.technologies.errors %}
+                                    <div class="text-danger">
+                                        {{ form.technologies.errors }}
+                                    </div>
+                                    {% endif %}
+                                    <small class="form-text text-muted">
+                                        {% trans "e.g., Python, Django, React, PostgreSQL" %}
+                                    </small>
+                                </div>
+                                
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="{{ form.start_date.id_for_label }}">{% trans "Start Date" %} *</label>
+                                            {{ form.start_date }}
+                                            {% if form.start_date.errors %}
+                                            <div class="text-danger">
+                                                {{ form.start_date.errors }}
+                                            </div>
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="{{ form.end_date.id_for_label }}">{% trans "End Date" %}</label>
+                                            {{ form.end_date }}
+                                            {% if form.end_date.errors %}
+                                            <div class="text-danger">
+                                                {{ form.end_date.errors }}
+                                            </div>
+                                            {% endif %}
+                                            <small class="form-text text-muted">
+                                                {% trans "Leave empty if ongoing project" %}
+                                            </small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="{{ form.description.id_for_label }}">{% trans "Project Description" %} *</label>
+                                    {{ form.description }}
+                                    {% if form.description.errors %}
+                                    <div class="text-danger">
+                                        {{ form.description.errors }}
+                                    </div>
+                                    {% endif %}
+                                    <small class="form-text text-muted">
+                                        {% trans "Describe the project, your role, and what it accomplishes" %}
+                                    </small>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="{{ form.project_url.id_for_label }}">{% trans "Project URL" %}</label>
+                                    {{ form.project_url }}
+                                    {% if form.project_url.errors %}
+                                    <div class="text-danger">
+                                        {{ form.project_url.errors }}
+                                    </div>
+                                    {% endif %}
+                                    <small class="form-text text-muted">
+                                        {% trans "Link to live project or demo" %}
+                                    </small>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="{{ form.github_url.id_for_label }}">{% trans "GitHub URL" %}</label>
+                                    {{ form.github_url }}
+                                    {% if form.github_url.errors %}
+                                    <div class="text-danger">
+                                        {{ form.github_url.errors }}
+                                    </div>
+                                    {% endif %}
+                                    <small class="form-text text-muted">
+                                        {% trans "Link to source code repository" %}
+                                    </small>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="row mt-3">
+                            <div class="col-12">
+                                <div class="d-flex justify-content-between">
+                                    <a href="{% url 'resumes_builder:resume_detail' pk=resume.id %}" class="btn btn-secondary">
+                                        <i class="fas fa-times mr-1"></i>{% trans "Cancel" %}
+                                    </a>
+                                    <button type="submit" class="btn btn-primary">
+                                        <i class="fas fa-plus mr-1"></i>{% trans "Add Project" %}
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // تحسين واجهة المستخدم للنموذج
+    const formFields = ['name', 'technologies', 'start_date', 'end_date', 'description', 'project_url', 'github_url'];
+    
+    formFields.forEach(fieldName => {
+        const field = document.getElementById('{{ form.name.id_for_label }}'.replace('name', fieldName));
+        if (field) {
+            field.classList.add('form-control');
+        }
+    });
+    
+    // تعديل حقول التاريخ
+    const startDate = document.getElementById('{{ form.start_date.id_for_label }}');
+    const endDate = document.getElementById('{{ form.end_date.id_for_label }}');
+    
+    if (startDate) {
+        startDate.type = 'date';
+    }
+    
+    if (endDate) {
+        endDate.type = 'date';
+    }
+    
+    // تعديل حقول النصوص الكبيرة
+    const description = document.getElementById('{{ form.description.id_for_label }}');
+    const technologies = document.getElementById('{{ form.technologies.id_for_label }}');
+    
+    if (description) {
+        description.rows = 4;
+    }
+    
+    if (technologies) {
+        technologies.rows = 2;
+        technologies.placeholder = '{% trans "e.g., Python, Django, React, PostgreSQL" %}';
+    }
+    
+    // تعديل حقول الروابط
+    const projectUrl = document.getElementById('{{ form.project_url.id_for_label }}');
+    const githubUrl = document.getElementById('{{ form.github_url.id_for_label }}');
+    
+    if (projectUrl) {
+        projectUrl.placeholder = 'https://example.com';
+    }
+    
+    if (githubUrl) {
+        githubUrl.placeholder = 'https://github.com/username/repo';
+    }
+});
+</script>
+{% endblock %}

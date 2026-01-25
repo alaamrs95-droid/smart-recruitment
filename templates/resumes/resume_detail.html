@@ -1,0 +1,200 @@
+<!-- templates/resumes/resume_detail.html -->
+{% extends "base/base.html" %}
+{% load static i18n %}
+
+{% block title %}{% trans "Resume Details" %} - {{ resume.original_filename|default:"Resume" }}{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <div class="card mt-3">
+                <div class="card-header">
+                    <h3 class="card-title">
+                        <i class="fas fa-file-alt"></i> {% trans "Resume Details" %}
+                    </h3>
+                    <div class="card-tools">
+                        {% if can_edit %}
+                        <a href="{% url 'resumes:update' pk=resume.id %}" class="btn btn-warning btn-sm">
+                            <i class="fas fa-edit"></i> {% trans "Edit" %}
+                        </a>
+                        <a href="{% url 'resumes:delete' pk=resume.id %}" class="btn btn-danger btn-sm">
+                            <i class="fas fa-trash"></i> {% trans "Delete" %}
+                        </a>
+                        {% endif %}
+                        {% if is_employer %}
+                        <a href="{% url 'matching:resume_jobs' resume_id=resume.id %}" class="btn btn-info btn-sm">
+                            <i class="fas fa-brain"></i> {% trans "View Matches" %}
+                        </a>
+                        {% endif %}
+                        <a href="{% url 'resumes:my' %}" class="btn btn-secondary btn-sm">
+                            <i class="fas fa-arrow-left"></i> {% trans "Back" %}
+                        </a>
+                    </div>
+                </div>
+
+                <div class="card-body">
+                    <div class="row">
+
+                        <!-- File Info -->
+                        <div class="col-md-4">
+                            <div class="card card-outline card-primary">
+                                <div class="card-header">
+                                    <h5>{% trans "File Information" %}</h5>
+                                </div>
+                                <div class="card-body">
+                                    {% if file_info %}
+                                    <p><strong>{% trans "Filename:" %}</strong> {{ file_info.name }}</p>
+                                    <p><strong>{% trans "Size:" %}</strong> {{ file_info.size }}</p>
+                                    <p><strong>{% trans "Type:" %}</strong> {{ file_info.type }}</p>
+                                    <p><strong>{% trans "Uploaded:" %}</strong> {{ file_info.uploaded }}</p>
+                                    {% else %}
+    <p class="text-muted">{% trans "No file uploaded for this resume." %}</p>
+{% endif %}
+                                    <p><strong>{% trans "Status:" %}</strong>
+                                        {% if resume.is_processed %}
+                                        <span class="badge badge-success">{% trans "Processed" %}</span>
+                                        {% else %}
+                                        <span class="badge badge-warning">{% trans "Processing..." %}</span>
+                                        {% endif %}
+                                    </p>
+                                    {% if resume.file %}
+                                    <a href="{{ resume.file.url }}" class="btn btn-sm btn-outline-primary" target="_blank">
+                                        <i class="fas fa-download"></i> {% trans "Download Original" %}
+                                    </a>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Right Content -->
+                        <div class="col-md-8">
+
+                            <!-- Skills -->
+                            <div class="card card-outline card-success mb-3">
+                                <div class="card-header">
+                                    <h5><i class="fas fa-tools"></i> {% trans "Extracted Skills" %} ({{ skills|length }})</h5>
+                                </div>
+                                <div class="card-body">
+                                    {% if skills %}
+                                    <div class="row">
+                                        {% for skill in skills %}
+                                        <div class="col-auto mb-2">
+                                            <span class="badge badge-pill badge-primary">{{ skill }}</span>
+                                        </div>
+                                        {% endfor %}
+                                    </div>
+                                    {% else %}
+                                    <p class="text-muted">{% trans "No skills extracted yet." %}</p>
+                                    {% endif %}
+                                </div>
+                            </div>
+
+                            <!-- Languages -->
+                            <div class="card card-outline card-info mb-3">
+                                <div class="card-header">
+                                    <h5><i class="fas fa-globe"></i> {% trans "Languages" %} ({{ languages|length }})</h5>
+                                </div>
+                                <div class="card-body">
+                                    {% if languages %}
+                                    <div class="row">
+                                        {% for lang in languages %}
+                                        <div class="col-auto mb-2">
+                                            <span class="badge badge-pill badge-info">{{ lang }}</span>
+                                        </div>
+                                        {% endfor %}
+                                    </div>
+                                    {% else %}
+                                    <p class="text-muted">{% trans "No languages detected." %}</p>
+                                    {% endif %}
+                                </div>
+                            </div>
+
+                            <!-- Education & Experience -->
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="card card-outline card-warning mb-3">
+                                        <div class="card-header">
+                                            <h5><i class="fas fa-graduation-cap"></i> {% trans "Education" %}</h5>
+                                        </div>
+                                        <div class="card-body">
+                                            {% if education %}
+                                            <ul class="list-group list-group-flush">
+                                                {% for edu in education %}
+                                                <li class="list-group-item">{{ edu }}</li>
+                                                {% endfor %}
+                                            </ul>
+                                            {% else %}
+                                            <p class="text-muted">{% trans "No education information extracted." %}</p>
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="card card-outline card-danger mb-3">
+                                        <div class="card-header">
+                                            <h5><i class="fas fa-briefcase"></i> {% trans "Experience" %}</h5>
+                                        </div>
+                                        <div class="card-body">
+                                            {% if experience %}
+                                            <ul class="list-group list-group-flush">
+                                                {% for exp in experience %}
+                                                <li class="list-group-item">{{ exp }}</li>
+                                                {% endfor %}
+                                            </ul>
+                                            {% else %}
+                                            <p class="text-muted">{% trans "No experience information extracted." %}</p>
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- ✅ Extracted Raw Text -->
+                            {% if resume.raw_text %}
+                            <div class="card card-outline card-secondary mb-3">
+                                <div class="card-header">
+                                    <h5>
+                                        <i class="fas fa-file-alt"></i>
+                                        {% trans "Extracted Text" %}
+                                    </h5>
+                                </div>
+                                <div class="card-body">
+                                    <button class="btn btn-outline-secondary btn-sm mb-3"
+                                            data-toggle="collapse"
+                                            data-target="#rawTextCollapse">
+                                        <i class="fas fa-eye"></i>
+                                        {% trans "Show / Hide Text" %}
+                                    </button>
+
+                                    <div class="collapse" id="rawTextCollapse">
+                                        <pre style="white-space: pre-wrap; font-size: 0.9rem;">
+{{ resume.raw_text|truncatechars:2000 }}
+                                        </pre>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endif %}
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+    .badge-pill {
+        font-size: 0.9rem;
+        padding: 0.5em 0.8em;
+    }
+    .card {
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+</style>
+{% endblock %}

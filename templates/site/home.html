@@ -1,0 +1,133 @@
+<!-- templates/site/home.html -->
+{% extends 'site/base.html' %}
+{% load i18n static %}
+
+{% block title %}{% trans "Smart Hiring Platform" %}{% endblock %}
+
+{% block content %}
+<div class="container-fluid px-0">
+    <!-- Hero Section -->
+    <section class="hero-section bg-primary text-white py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h1 class="display-4 fw-bold mb-4">
+                        {% trans "Find Your Dream Job or Perfect Candidate" %}
+                    </h1>
+                    <p class="lead mb-4">
+                        {% trans "Intelligent recruitment platform connecting employers with qualified candidates using AI-powered matching." %}
+                    </p>
+                    <div class="d-flex gap-3">
+                        {% if not user.is_authenticated %}
+                            <a href="{% url 'register' %}" class="btn btn-light btn-lg">
+                                {% trans "Get Started" %}
+                            </a>
+                            <a href="{% url 'login' %}" class="btn btn-outline-light btn-lg">
+                                {% trans "Login" %}
+                            </a>
+                        {% else %}
+                            <a href="{% url 'dashboard' %}" class="btn btn-light btn-lg">
+                                {% trans "Go to Dashboard" %}
+                            </a>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="col-lg-6 text-center">
+                    <div class="bg-white rounded p-4 shadow">
+                        <i class="bi bi-briefcase text-primary" style="font-size: 10rem;"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">{% trans "Why Choose Our Platform" %}</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body text-center p-4">
+                            <div class="feature-icon mb-3">
+                                <i class="bi bi-search text-primary" style="font-size: 3rem;"></i>
+                            </div>
+                            <h4>{% trans "Smart Matching" %}</h4>
+                            <p>{% trans "AI-powered matching between job requirements and candidate skills." %}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body text-center p-4">
+                            <div class="feature-icon mb-3">
+                                <i class="bi bi-speedometer2 text-primary" style="font-size: 3rem;"></i>
+                            </div>
+                            <h4>{% trans "Fast & Efficient" %}</h4>
+                            <p>{% trans "Reduce hiring time by 70% with our intelligent screening system." %}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body text-center p-4">
+                            <div class="feature-icon mb-3">
+                                <i class="bi bi-shield-check text-primary" style="font-size: 3rem;"></i>
+                            </div>
+                            <h4>{% trans "Secure & Reliable" %}</h4>
+                            <p>{% trans "Your data is protected with enterprise-grade security." %}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5">{% trans "How It Works" %}</h2>
+            <div class="row">
+                <div class="col-md-3 text-center mb-4">
+                    <div class="step-number mb-3">1</div>
+                    <h5>{% trans "Register" %}</h5>
+                    <p>{% trans "Create your account as employer or candidate." %}</p>
+                </div>
+                <div class="col-md-3 text-center mb-4">
+                    <div class="step-number mb-3">2</div>
+                    <h5>{% trans "Create Profile" %}</h5>
+                    <p>{% trans "Add your details, skills, or job requirements." %}</p>
+                </div>
+                <div class="col-md-3 text-center mb-4">
+                    <div class="step-number mb-3">3</div>
+                    <h5>{% trans "Find Matches" %}</h5>
+                    <p>{% trans "Our AI system finds the best matches for you." %}</p>
+                </div>
+                <div class="col-md-3 text-center mb-4">
+                    <div class="step-number mb-3">4</div>
+                    <h5>{% trans "Connect" %}</h5>
+                    <p>{% trans "Communicate and hire the perfect match." %}</p>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+    .step-number {
+        width: 60px;
+        height: 60px;
+        background: var(--primary-color);
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+        font-weight: bold;
+        margin: 0 auto;
+    }
+</style>
+{% endblock %}

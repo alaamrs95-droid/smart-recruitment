@@ -1,0 +1,54 @@
+<!-- templates/resumes/builder/delete_confirm.html -->
+<!-- تم إنشاء هذا القالب لتأكيد الحذف -->
+{% extends "base/base.html" %}
+{% load static i18n custom_filters %}
+
+{% block title %}{{ title }} - منصة توظيف ذكية{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <div class="card mt-3">
+                <div class="card-header">
+                    <h3 class="card-title">
+                        <i class="fas fa-exclamation-triangle mr-2 text-warning"></i>{{ title }}
+                    </h3>
+                    <div class="card-tools">
+                        <a href="{{ cancel_url }}" class="btn btn-sm btn-secondary">
+                            <i class="fas fa-arrow-left mr-1"></i>{% trans "Back to Resume" %}
+                        </a>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="alert alert-warning">
+                        <h5 class="alert-heading">
+                            <i class="fas fa-exclamation-triangle mr-2"></i>{% trans "Are you sure?" %}
+                        </h5>
+                        <p class="mb-0">
+                            {% trans "This action cannot be undone. This will permanently delete the" %} 
+                            <strong>{{ object|get_class_name|lower }}</strong>:
+                        </p>
+                        <hr>
+                        <p class="mb-0">
+                            <strong>{{ object }}</strong>
+                        </p>
+                    </div>
+                    
+                    <form method="post">
+                        {% csrf_token %}
+                        <div class="d-flex justify-content-between">
+                            <a href="{{ cancel_url }}" class="btn btn-secondary">
+                                <i class="fas fa-times mr-1"></i>{% trans "Cancel" %}
+                            </a>
+                            <button type="submit" class="btn btn-danger">
+                                <i class="fas fa-trash mr-1"></i>{% trans "Delete" %}
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

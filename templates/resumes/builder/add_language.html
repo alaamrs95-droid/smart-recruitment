@@ -1,0 +1,93 @@
+<!-- templates/resumes/builder/add_language.html -->
+<!-- تم إنشاء هذا القالب لإضافة لغة -->
+{% extends "base/base.html" %}
+{% load static i18n custom_filters %}
+
+{% block title %}{{ title }} - منصة توظيف ذكية{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <div class="card mt-3">
+                <div class="card-header">
+                    <h3 class="card-title">
+                        <i class="fas fa-language mr-2"></i>{{ title }}
+                    </h3>
+                    <div class="card-tools">
+                        <a href="{% url 'resumes_builder:resume_detail' pk=resume.id %}" class="btn btn-sm btn-secondary">
+                            <i class="fas fa-arrow-left mr-1"></i>{% trans "Back to Resume" %}
+                        </a>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <form method="post">
+                        {% csrf_token %}
+                        
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="{{ form.name.id_for_label }}">{% trans "Language" %} *</label>
+                                    {{ form.name }}
+                                    {% if form.name.errors %}
+                                    <div class="text-danger">
+                                        {{ form.name.errors }}
+                                    </div>
+                                    {% endif %}
+                                    <small class="form-text text-muted">
+                                        {% trans "e.g., English, Arabic, French" %}
+                                    </small>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="{{ form.level.id_for_label }}">{% trans "Proficiency Level" %}</label>
+                                    {{ form.level }}
+                                    {% if form.level.errors %}
+                                    <div class="text-danger">
+                                        {{ form.level.errors }}
+                                    </div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="row mt-3">
+                            <div class="col-12">
+                                <div class="d-flex justify-content-between">
+                                    <a href="{% url 'resumes_builder:resume_detail' pk=resume.id %}" class="btn btn-secondary">
+                                        <i class="fas fa-times mr-1"></i>{% trans "Cancel" %}
+                                    </a>
+                                    <button type="submit" class="btn btn-primary">
+                                        <i class="fas fa-plus mr-1"></i>{% trans "Add Language" %}
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // تحسين واجهة المستخدم للنموذج
+    const nameField = document.getElementById('{{ form.name.id_for_label }}');
+    const levelField = document.getElementById('{{ form.level.id_for_label }}');
+    
+    if (nameField) {
+        nameField.classList.add('form-control');
+        nameField.placeholder = '{% trans "e.g., English, Arabic, Spanish" %}';
+    }
+    
+    if (levelField) {
+        levelField.classList.add('form-control');
+    }
+});
+</script>
+{% endblock %}

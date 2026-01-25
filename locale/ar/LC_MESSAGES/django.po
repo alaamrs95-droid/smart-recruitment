@@ -1,0 +1,2228 @@
+# Arabic translation for Smart Hiring Platform
+# Copyright (C) 2026 Smart Hiring
+# This file is distributed under the same license as the Smart Hiring package.
+# First Author <admin@smarthiring.com>, 2026
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: التوظيف الذكي 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-01-24 11:04+0300\n"
+"PO-Revision-Date: 2026-01-24 12:00+0300\n"
+"Last-Translator: فريق التوظيف الذكي admin@smarthiring.com\n"
+"Language-Team: العربية ar@li.org\n"
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+
+#: .\templates\accounts\dashboard_candidate.html:5
+msgid "Candidate Dashboard"
+msgstr "لوحة تحكم المرشح"
+
+#: .\templates\accounts\dashboard_candidate.html:13
+#: .\templates\accounts\dashboard_employer.html:13
+msgid "Welcome back,"
+msgstr "مرحباً بعودتك،"
+
+#: .\templates\accounts\dashboard_candidate.html:17
+#: .\templates\matching\candidate_matches.html:54
+#: .\templates\resumes\profile.html:20 .\templates\resumes\profile.html:176
+#: .\templates\resumes\resume_list.html:22
+#: .\templates\resumes\resume_upload.html:5 .\templates\site\footer.html:33
+msgid "Upload Resume"
+msgstr "رفع السيرة الذاتية"
+
+#: .\templates\accounts\dashboard_candidate.html:20
+#: .\templates\resumes\profile.html:23 .\templates\resumes\profile.html:179
+msgid "Build Resume"
+msgstr "إنشاء سيرة ذاتية"
+
+#: .\templates\accounts\dashboard_candidate.html:31
+#: .\templates\resumes\profile.html:6
+msgid "Resume Profile"
+msgstr "ملف السيرة الذاتية"
+
+#: .\templates\accounts\dashboard_candidate.html:34
+msgid "Manage"
+msgstr "إدارة"
+
+#: .\templates\accounts\dashboard_candidate.html:45
+msgid "Processed Resumes"
+msgstr "السير الذاتية المعالجة"
+
+#: .\templates\accounts\dashboard_candidate.html:58
+#: .\templates\matching\analytics_dashboard.html:24
+msgid "Total Matches"
+msgstr "إجمالي المطابقات"
+
+#: .\templates\accounts\dashboard_candidate.html:64
+#: .\templates\resumes\my_resumes.html:63
+msgid "View All Matches"
+msgstr "عرض جميع المطابقات"
+
+#: .\templates\accounts\dashboard_candidate.html:74
+msgid "Excellent Matches"
+msgstr "مطابقات ممتازة"
+
+#: .\templates\accounts\dashboard_candidate.html:80
+#: .\templates\accounts\dashboard_employer.html:72
+#: .\templates\resumes\resume_detail.html:27
+msgid "View Matches"
+msgstr "عرض المطابقات"
+
+#: .\templates\accounts\dashboard_candidate.html:91
+msgid "Profile Completeness"
+msgstr "اكتمال الملف الشخصي"
+
+#: .\templates\accounts\dashboard_candidate.html:108
+msgid "Top Skills to Learn"
+msgstr "أهم المهارات للتعلم"
+
+#: .\templates\accounts\dashboard_candidate.html:117
+msgid "jobs need this"
+msgstr "وظائف تحتاج هذه المهارة"
+
+#: .\templates\accounts\dashboard_candidate.html:120
+msgid "No missing skills identified."
+msgstr "لم يتم تحديد مهارات ناقصة."
+
+#: .\templates\accounts\dashboard_candidate.html:132
+msgid "Recent Jobs"
+msgstr "الوظائف الأخيرة"
+
+#: .\templates\accounts\dashboard_candidate.html:147
+#: .\templates\jobs\job_list.html:74 .\templates\resumes\resume_list.html:145
+msgid "View Details"
+msgstr "عرض التفاصيل"
+
+#: .\templates\accounts\dashboard_candidate.html:152
+msgid "No recent jobs available."
+msgstr "لا توجد وظائف حديثة متاحة."
+
+#: .\templates\accounts\dashboard_candidate.html:165
+msgid "Recommended Jobs for You"
+msgstr "وظائف موصى بها لك"
+
+#: .\templates\accounts\dashboard_candidate.html:180
+msgid "AI Recommended"
+msgstr "موصى بها بالذكاء الاصطناعي"
+
+#: .\templates\accounts\dashboard_candidate.html:185
+msgid "Upload a resume to get personalized recommendations!"
+msgstr "ارفع سيرة ذاتية للحصول على توصيات مخصصة!"
+
+#: .\templates\accounts\dashboard_employer.html:5
+msgid "Employer Dashboard"
+msgstr "لوحة تحكم صاحب العمل"
+
+#: .\templates\accounts\dashboard_employer.html:16
+#: .\templates\jobs\job_create.html:5 .\templates\jobs\my_jobs.html:16
+msgid "Create New Job"
+msgstr "إنشاء وظيفة جديدة"
+
+#: .\templates\accounts\dashboard_employer.html:27
+#: .\templates\jobs\my_jobs.html:27
+msgid "Total Jobs"
+msgstr "إجمالي الوظائف"
+
+#: .\templates\accounts\dashboard_employer.html:40
+#: .\templates\jobs\my_jobs.html:39
+msgid "Active Jobs"
+msgstr "الوظائف النشطة"
+
+#: .\templates\accounts\dashboard_employer.html:53
+msgid "Total Applications"
+msgstr "إجمالي الطلبات"
+
+#: .\templates\accounts\dashboard_employer.html:66
+#: .\templates\base\base.html:83
+msgid "AI Matches"
+msgstr "مطابقات الذكاء الاصطناعي"
+
+#: .\templates\accounts\dashboard_employer.html:83
+#: .\templates\base\base.html:77 .\templates\jobs\my_jobs.html:5
+msgid "My Jobs"
+msgstr "وظائفي"
+
+#: .\templates\accounts\dashboard_employer.html:89
+#: .\templates\jobs\my_jobs.html:53
+#: .\templates\matching\_employer_matches_cards.html:65
+msgid "Title"
+msgstr "العنوان"
+
+#: .\templates\accounts\dashboard_employer.html:90
+#: .\templates\jobs\my_jobs.html:54 .\templates\resumes\my_resumes.html:77
+msgid "Status"
+msgstr "الحالة"
+
+#: .\templates\accounts\dashboard_employer.html:91
+msgid "Created At"
+msgstr "تاريخ الإنشاء"
+
+#: .\templates\accounts\dashboard_employer.html:92
+#: .\templates\jobs\my_jobs.html:56 .\templates\resumes\my_resumes.html:79
+msgid "Actions"
+msgstr "الإجراءات"
+
+#: .\templates\accounts\dashboard_employer.html:101
+#: .\templates\jobs\job_detail.html:89 .\templates\jobs\job_list.html:66
+#: .\templates\jobs\my_jobs.html:67
+#: .\templates\resumes\builder\resume_edit.html:77
+#: .\templates\resumes\profile.html:60 .\templates\resumes\profile.html:216
+msgid "Active"
+msgstr "نشط"
+
+#: .\templates\accounts\dashboard_employer.html:103
+#: .\templates\jobs\job_detail.html:91 .\templates\jobs\job_list.html:68
+#: .\templates\jobs\my_jobs.html:69 .\templates\resumes\profile.html:62
+#: .\templates\resumes\profile.html:219
+msgid "Inactive"
+msgstr "غير نشط"
+
+#: .\templates\accounts\dashboard_employer.html:112
+#: .\templates\jobs\my_jobs.html:81 .\templates\resumes\my_resumes.html:117
+msgid "Matches"
+msgstr "مطابقات"
+
+#: .\templates\accounts\dashboard_employer.html:121
+msgid "No jobs yet. Create your first job!"
+msgstr "لا توجد وظائف بعد. أنشئ وظيفتك الأولى!"
+
+#: .\templates\accounts\login.html:5 .\templates\accounts\login.html:48
+#: .\templates\site\header.html:92 .\templates\site\home.html:26
+msgid "Login"
+msgstr "تسجيل الدخول"
+
+#: .\templates\accounts\login.html:13
+msgid "Login to Your Account"
+msgstr "تسجيل الدخول إلى حسابك"
+
+#: .\templates\accounts\login.html:31
+msgid "Username or Email"
+msgstr "اسم المستخدم أو البريد الإلكتروني"
+
+#: .\templates\accounts\login.html:39 .\templates\accounts\register.html:55
+msgid "Password"
+msgstr "كلمة المرور"
+
+#: .\templates\accounts\login.html:54
+msgid "Don't have an account?"
+msgstr "ليس لديك حساب؟"
+
+#: .\templates\accounts\login.html:55
+msgid "Register here"
+msgstr "سجل هنا"
+
+#: .\templates\accounts\register.html:5 .\templates\accounts\register.html:72
+#: .\templates\site\header.html:95 .\templates\site\home.html:93
+msgid "Register"
+msgstr "إنشاء حساب"
+
+#: .\templates\accounts\register.html:13
+msgid "Create New Account"
+msgstr "إنشاء حساب جديد"
+
+#: .\templates\accounts\register.html:30
+msgid "Username"
+msgstr "اسم المستخدم"
+
+#: .\templates\accounts\register.html:38
+msgid "Email"
+msgstr "البريد الإلكتروني"
+
+#: .\templates\accounts\register.html:46
+msgid "Account Type"
+msgstr "نوع الحساب"
+
+#: .\templates\accounts\register.html:51
+msgid "Choose your role: Candidate (job seeker) or Employer (company)"
+msgstr "اختر دورك: مرشح (باحث عن عمل) أو صاحب عمل (شركة)"
+
+#: .\templates\accounts\register.html:63
+msgid "Confirm Password"
+msgstr "تأكيد كلمة المرور"
+
+#: .\templates\accounts\register.html:78
+msgid "Already have an account?"
+msgstr "هل لديك حساب بالفعل؟"
+
+#: .\templates\accounts\register.html:79
+msgid "Login here"
+msgstr "سجل الدخول هنا"
+
+#: .\templates\base\base.html:36 .\templates\site\header.html:83
+msgid "Logout"
+msgstr "تسجيل الخروج"
+
+#: .\templates\base\base.html:46
+#, fuzzy
+#| msgid "AI Matches"
+msgid "AI Matcher"
+msgstr "مطابقات الذكاء الاصطناعي"
+
+#: .\templates\base\base.html:56 .\templates\site\header.html:37
+#: .\templates\site\header.html:76
+msgid "Dashboard"
+msgstr "لوحة التحكم"
+
+#: .\templates\base\base.html:64 .\templates\resumes\builder\resume_list.html:6
+#: .\templates\resumes\my_resumes.html:5 .\templates\resumes\my_resumes.html:16
+#: .\templates\resumes\profile.html:74 .\templates\resumes\resume_list.html:25
+msgid "My Resumes"
+msgstr "سيري الذاتية"
+
+#: .\templates\base\base.html:70
+#, fuzzy
+#| msgid "My Job Matches"
+msgid "My Matches"
+msgstr "مطابقات وظائفي"
+
+#: .\templates\jobs\job_create.html:13
+msgid "Create New Job Posting"
+msgstr "إنشاء إعلان وظيفة جديد"
+
+#: .\templates\jobs\job_create.html:32 .\templates\jobs\job_update.html:32
+msgid "Job Title"
+msgstr "المسمى الوظيفي"
+
+#: .\templates\jobs\job_create.html:42 .\templates\jobs\job_update.html:42
+msgid "Education Level"
+msgstr "المستوى التعليمي"
+
+#: .\templates\jobs\job_create.html:52 .\templates\jobs\job_detail.html:37
+#: .\templates\jobs\job_update.html:52
+#: .\templates\resumes\builder\edit_experience.html:89
+msgid "Job Description"
+msgstr "وصف الوظيفة"
+
+#: .\templates\jobs\job_create.html:62 .\templates\jobs\job_detail.html:43
+#: .\templates\jobs\job_update.html:62
+msgid "Required Skills"
+msgstr "المهارات المطلوبة"
+
+#: .\templates\jobs\job_create.html:67
+msgid "Separate with commas (e.g. Python, Django, PostgreSQL)"
+msgstr "افصل بفواصل (مثال: Python, Django, PostgreSQL)"
+
+#: .\templates\jobs\job_create.html:73 .\templates\jobs\job_detail.html:55
+#: .\templates\jobs\job_update.html:73
+msgid "Preferred Skills"
+msgstr "المهارات المفضلة"
+
+#: .\templates\jobs\job_create.html:73 .\templates\jobs\job_create.html:97
+#: .\templates\jobs\job_update.html:73 .\templates\jobs\job_update.html:97
+msgid "(Optional)"
+msgstr "(اختياري)"
+
+#: .\templates\jobs\job_create.html:78 .\templates\jobs\job_update.html:67
+#: .\templates\jobs\job_update.html:78 .\templates\jobs\job_update.html:91
+msgid "Separate with commas"
+msgstr "افصل بفواصل"
+
+#: .\templates\jobs\job_create.html:86 .\templates\jobs\job_detail.html:67
+#: .\templates\jobs\job_update.html:86
+msgid "Required Languages"
+msgstr "اللغات المطلوبة"
+
+#: .\templates\jobs\job_create.html:91
+msgid "Separate with commas (e.g. Arabic, English)"
+msgstr "افصل بفواصل (مثال: العربية، الإنجليزية)"
+
+#: .\templates\jobs\job_create.html:97 .\templates\jobs\job_update.html:97
+msgid "Experience Years"
+msgstr "سنوات الخبرة"
+
+#: .\templates\jobs\job_create.html:110 .\templates\jobs\job_update.html:110
+msgid "Active (Visible to candidates)"
+msgstr "نشط (مرئي للمرشحين)"
+
+#: .\templates\jobs\job_create.html:117
+#: .\templates\matching\employer_matches.html:62
+msgid "Create Job"
+msgstr "إنشاء وظيفة"
+
+#: .\templates\jobs\job_create.html:127 .\templates\jobs\job_update.html:127
+msgid "Back to My Jobs"
+msgstr "العودة إلى وظائفي"
+
+#: .\templates\jobs\job_delete.html:5
+msgid "Delete Job"
+msgstr "حذف الوظيفة"
+
+#: .\templates\jobs\job_delete.html:13
+#: .\templates\resumes\builder\resume_detail.html:379
+#: .\templates\resumes\resume_delete.html:12
+msgid "Confirm Delete"
+msgstr "تأكيد الحذف"
+
+#: .\templates\jobs\job_delete.html:17
+msgid "Are you sure you want to delete this job posting?"
+msgstr "هل أنت متأكد أنك تريد حذف إعلان الوظيفة هذا؟"
+
+#: .\templates\jobs\job_delete.html:21
+msgid "Posted on"
+msgstr "نُشر في"
+
+#: .\templates\jobs\job_delete.html:24
+#: .\templates\resumes\resume_delete.html:23
+msgid "This action cannot be undone!"
+msgstr "لا يمكن التراجع عن هذا الإجراء!"
+
+#: .\templates\jobs\job_delete.html:30
+#: .\templates\resumes\resume_delete.html:29
+msgid "Yes, Delete It"
+msgstr "نعم، احذفه"
+
+#: .\templates\jobs\job_delete.html:35
+#: .\templates\resumes\builder\add_certification.html:106
+#: .\templates\resumes\builder\add_education.html:140
+#: .\templates\resumes\builder\add_experience.html:130
+#: .\templates\resumes\builder\add_language.html:60
+#: .\templates\resumes\builder\add_project.html:127
+#: .\templates\resumes\builder\add_skill.html:73
+#: .\templates\resumes\builder\delete_confirm.html:42
+#: .\templates\resumes\builder\edit_experience.html:120
+#: .\templates\resumes\builder\edit_personal_info.html:136
+#: .\templates\resumes\builder\resume_create.html:97
+#: .\templates\resumes\builder\resume_detail.html:388
+#: .\templates\resumes\builder\resume_edit.html:93
+#: .\templates\resumes\resume_delete.html:34
+msgid "Cancel"
+msgstr "إلغاء"
+
+#: .\templates\jobs\job_detail.html:17
+#: .\templates\resumes\builder\resume_detail.html:65
+#: .\templates\resumes\builder\resume_list.html:74
+#: .\templates\resumes\resume_detail.html:19
+msgid "Edit"
+msgstr "تعديل"
+
+#: .\templates\jobs\job_detail.html:20
+#: .\templates\resumes\builder\delete_confirm.html:45
+#: .\templates\resumes\builder\edit_experience.html:126
+#: .\templates\resumes\builder\resume_detail.html:389
+#: .\templates\resumes\builder\resume_list.html:99
+#: .\templates\resumes\resume_detail.html:22
+msgid "Delete"
+msgstr "حذف"
+
+#: .\templates\jobs\job_detail.html:23
+msgid "View AI Matches"
+msgstr "عرض مطابقات الذكاء الاصطناعي"
+
+#: .\templates\jobs\job_detail.html:27
+msgid "Apply"
+msgstr "تقدم"
+
+#: .\templates\jobs\job_detail.html:30
+msgid "Back to Jobs"
+msgstr "العودة إلى الوظائف"
+
+#: .\templates\jobs\job_detail.html:51
+msgid "No required skills specified."
+msgstr "لم يتم تحديد مهارات مطلوبة."
+
+#: .\templates\jobs\job_detail.html:63
+msgid "No preferred skills."
+msgstr "لا توجد مهارات مفضلة."
+
+#: .\templates\jobs\job_detail.html:75
+msgid "No languages specified."
+msgstr "لم يتم تحديد لغات."
+
+#: .\templates\jobs\job_detail.html:82
+msgid "Job Information"
+msgstr "معلومات الوظيفة"
+
+#: .\templates\jobs\job_detail.html:85
+#: .\templates\matching\match_detail.html:38
+msgid "Employer:"
+msgstr "صاحب العمل:"
+
+#: .\templates\jobs\job_detail.html:86
+#: .\templates\matching\match_detail.html:39
+msgid "Posted:"
+msgstr "نُشر:"
+
+#: .\templates\jobs\job_detail.html:87
+#: .\templates\resumes\resume_detail.html:54
+msgid "Status:"
+msgstr "الحالة:"
+
+#: .\templates\jobs\job_detail.html:95
+msgid "Education Level:"
+msgstr "المستوى التعليمي:"
+
+#: .\templates\jobs\job_detail.html:98
+msgid "Experience Required:"
+msgstr "الخبرة المطلوبة:"
+
+#: .\templates\jobs\job_detail.html:98
+#: .\templates\resumes\builder\resume_detail.html:230
+msgid "years"
+msgstr "سنوات"
+
+#: .\templates\jobs\job_list.html:5
+msgid "Job Listings"
+msgstr "قائمة الوظائف"
+
+#: .\templates\jobs\job_list.html:13
+msgid "Available Jobs"
+msgstr "الوظائف المتاحة"
+
+#: .\templates\jobs\job_list.html:19
+msgid "Search by title or description..."
+msgstr "البحث بالعنوان أو الوصف..."
+
+#: .\templates\jobs\job_list.html:25
+msgid "Filter by skill..."
+msgstr "تصفية بالمهارة..."
+
+#: .\templates\jobs\job_list.html:48
+msgid "Required Skills:"
+msgstr "المهارات المطلوبة:"
+
+#: .\templates\jobs\job_list.html:57
+msgid "Languages:"
+msgstr "اللغات:"
+
+#: .\templates\jobs\job_list.html:81
+msgid "No jobs match your search."
+msgstr "لا توجد وظائف تطابق بحثك."
+
+#: .\templates\jobs\job_list.html:82 .\templates\resumes\resume_list.html:166
+msgid "Clear Filters"
+msgstr "مسح الفلاتر"
+
+#: .\templates\jobs\job_update.html:5 .\templates\jobs\job_update.html:117
+msgid "Update Job"
+msgstr "تحديث الوظيفة"
+
+#: .\templates\jobs\job_update.html:13
+msgid "Update Job Posting"
+msgstr "تحديث إعلان الوظيفة"
+
+#: .\templates\jobs\my_jobs.html:13
+msgid "My Job Postings"
+msgstr "إعلانات وظائفي"
+
+#: .\templates\jobs\my_jobs.html:55
+msgid "Posted"
+msgstr "نُشر"
+
+#: .\templates\jobs\my_jobs.html:91
+msgid "You haven't posted any jobs yet."
+msgstr "لم تنشر أي وظائف بعد."
+
+#: .\templates\jobs\my_jobs.html:93
+msgid "Create Your First Job"
+msgstr "أنشئ وظيفتك الأولى"
+
+#: .\templates\matching\_employer_matches_cards.html:18
+msgid "Primary Resume"
+msgstr "السيرة الذاتية الأساسية"
+
+#: .\templates\matching\_employer_matches_cards.html:20
+#: .\templates\matching\_employer_matches_cards.html:29
+#: .\templates\matching\_matches_cards.html:32
+#: .\templates\resumes\profile.html:40 .\templates\resumes\profile.html:84
+#: .\templates\resumes\profile.html:152
+msgid "Built Resume"
+msgstr "سيرة ذاتية مبنية"
+
+#: .\templates\matching\_employer_matches_cards.html:22
+#: .\templates\matching\_employer_matches_cards.html:31
+#: .\templates\matching\_matches_cards.html:25
+#: .\templates\resumes\profile.html:42 .\templates\resumes\profile.html:87
+#: .\templates\resumes\profile.html:149
+msgid "Uploaded Resume"
+msgstr "سيرة ذاتية مرفوعة"
+
+#: .\templates\matching\_employer_matches_cards.html:25
+msgid "Has Both"
+msgstr "يحتوي على كليهما"
+
+#: .\templates\matching\_employer_matches_cards.html:43
+msgid "Match Score"
+msgstr "نسبة المطابقة"
+
+#: .\templates\matching\_employer_matches_cards.html:52
+msgid "Applied for"
+msgstr "تقدم لـ"
+
+#: .\templates\matching\_employer_matches_cards.html:62
+#: .\templates\resumes\resume_detail.html:5
+#: .\templates\resumes\resume_detail.html:14
+msgid "Resume Details"
+msgstr "تفاصيل السيرة الذاتية"
+
+#: .\templates\matching\_employer_matches_cards.html:69
+msgid "Not specified"
+msgstr "غير محدد"
+
+#: .\templates\matching\_employer_matches_cards.html:75
+#: .\templates\resumes\resume_list.html:149
+msgid "Contact"
+msgstr "اتصال"
+
+#: .\templates\matching\_employer_matches_cards.html:80
+msgid "Phone"
+msgstr "هاتف"
+
+#: .\templates\matching\_employer_matches_cards.html:92
+msgid "Match Reasons"
+msgstr "أسباب المطابقة"
+
+#: .\templates\matching\_employer_matches_cards.html:110
+#: .\templates\matching\match_detail.html:74
+msgid "Strengths"
+msgstr "نقاط القوة"
+
+#: .\templates\matching\_employer_matches_cards.html:125
+#: .\templates\matching\match_detail.html:117
+msgid "Areas for Improvement"
+msgstr "مجالات التحسين"
+
+#: .\templates\matching\_employer_matches_cards.html:142
+#: .\templates\matching\job_matches_summary.html:55
+#: .\templates\matching\job_resumes_matches.html:73
+#: .\templates\matching\resume_jobs_matches.html:73
+msgid "Full Analysis"
+msgstr "تحليل كامل"
+
+#: .\templates\matching\_employer_matches_cards.html:151
+msgid "View Uploaded"
+msgstr "عرض المرفوع"
+
+#: .\templates\matching\_employer_matches_cards.html:159
+msgid "View Built"
+msgstr "عرض المبنية"
+
+#: .\templates\matching\_employer_matches_cards.html:166
+#: .\templates\matching\job_resumes_matches.html:76
+msgid "View Resume"
+msgstr "عرض السيرة الذاتية"
+
+#: .\templates\matching\_employer_matches_cards.html:184
+msgid "No matches found"
+msgstr "لم يتم العثور على مطابقات"
+
+#: .\templates\matching\_employer_matches_cards.html:185
+msgid "No candidates match your criteria at this time."
+msgstr "لا يوجد مرشحون يطابقون معاييرك في هذا الوقت."
+
+#: .\templates\matching\_matches_cards.html:41
+#: .\templates\matching\candidate_matches.html:27
+#: .\templates\matching\employer_matches.html:27
+msgid "Excellent"
+msgstr "ممتاز"
+
+#: .\templates\matching\_matches_cards.html:45
+#: .\templates\matching\candidate_matches.html:30
+#: .\templates\matching\employer_matches.html:30
+msgid "Good"
+msgstr "جيد"
+
+#: .\templates\matching\_matches_cards.html:49
+#: .\templates\matching\candidate_matches.html:33
+#: .\templates\matching\employer_matches.html:33
+msgid "Moderate"
+msgstr "متوسط"
+
+#: .\templates\matching\_matches_cards.html:57
+#: .\templates\matching\job_matches_summary.html:37
+#: .\templates\matching\job_resumes_matches.html:36
+#: .\templates\matching\resume_jobs_matches.html:36
+msgid "Match Score:"
+msgstr "نسبة المطابقة:"
+
+#: .\templates\matching\_matches_cards.html:74
+msgid "Why this match?"
+msgstr "لماذا هذه المطابقة؟"
+
+#: .\templates\matching\_matches_cards.html:89
+msgid "Strengths:"
+msgstr "نقاط القوة:"
+
+#: .\templates\matching\_matches_cards.html:106
+msgid "Areas for Improvement:"
+msgstr "مجالات التحسين:"
+
+#: .\templates\matching\_matches_cards.html:127
+msgid "View detailed AI analysis"
+msgstr "عرض تحليل الذكاء الاصطناعي التفصيلي"
+
+#: .\templates\matching\_matches_cards.html:128
+msgid "Analysis"
+msgstr "تحليل"
+
+#: .\templates\matching\_matches_cards.html:133
+msgid "Upload a resume to enable analysis"
+msgstr "ارفع سيرة ذاتية لتمكين التحليل"
+
+#: .\templates\matching\_matches_cards.html:134
+msgid "No Analysis"
+msgstr "لا يوجد تحليل"
+
+#: .\templates\matching\_matches_cards.html:142
+msgid "View full job details"
+msgstr "عرض تفاصيل الوظيفة الكاملة"
+
+#: .\templates\matching\_matches_cards.html:143
+#: .\templates\matching\match_detail.html:34
+msgid "Job"
+msgstr "وظيفة"
+
+#: .\templates\matching\_matches_cards.html:152
+msgid "No matches in this category."
+msgstr "لا توجد مطابقات في هذه الفئة."
+
+#: .\templates\matching\analytics_dashboard.html:13
+msgid "Your Analytics"
+msgstr "تحليلاتك"
+
+#: .\templates\matching\analytics_dashboard.html:34
+msgid "Average Score"
+msgstr "متوسط النقاط"
+
+#: .\templates\matching\analytics_dashboard.html:45
+msgid "Applications"
+msgstr "الطلبات"
+
+#: .\templates\matching\analytics_dashboard.html:56
+msgid "Profile Complete"
+msgstr "اكتمال الملف الشخصي"
+
+#: .\templates\matching\analytics_dashboard.html:68
+msgid "Match Score Distribution"
+msgstr "توزيع نقاط المطابقة"
+
+#: .\templates\matching\analytics_dashboard.html:79
+msgid "Application Status"
+msgstr "حالة الطلب"
+
+#: .\templates\matching\analytics_dashboard.html:93
+msgid "Your Top Skills"
+msgstr "أفضل مهاراتك"
+
+#: .\templates\matching\analytics_dashboard.html:99
+#: .\templates\resumes\skills_gap_analysis.html:79
+msgid "Skill"
+msgstr "مهارة"
+
+#: .\templates\matching\analytics_dashboard.html:100
+msgid "You Have It"
+msgstr "لديكها"
+
+#: .\templates\matching\analytics_dashboard.html:101
+msgid "Market Demand"
+msgstr "الطلب في السوق"
+
+#: .\templates\matching\analytics_dashboard.html:102
+#, python-format
+msgid "Demand %%"
+msgstr "نسبة الطلب %%"
+
+#: .\templates\matching\candidate_matches.html:5
+msgid "My Job Matches"
+msgstr "مطابقات وظائفي"
+
+#: .\templates\matching\candidate_matches.html:13
+msgid "My AI Job Matches"
+msgstr "مطابقات وظائفي بالذكاء الاصطناعي"
+
+#: .\templates\matching\candidate_matches.html:15
+#: .\templates\matching\employer_matches.html:15
+msgid "Excellent:"
+msgstr "ممتاز:"
+
+#: .\templates\matching\candidate_matches.html:16
+#: .\templates\matching\employer_matches.html:16
+msgid "Good:"
+msgstr "جيد:"
+
+#: .\templates\matching\candidate_matches.html:17
+#: .\templates\matching\employer_matches.html:17
+msgid "Moderate:"
+msgstr "متوسط:"
+
+#: .\templates\matching\candidate_matches.html:24
+#: .\templates\matching\employer_matches.html:24
+msgid "All Matches"
+msgstr "جميع المطابقات"
+
+#: .\templates\matching\candidate_matches.html:53
+msgid "Upload a resume to see personalized job matches!"
+msgstr "ارفع سيرة ذاتية لرؤية مطابقات الوظائف المخصصة!"
+
+#: .\templates\matching\employer_matches.html:5
+msgid "Candidate Matches"
+msgstr "مطابقات المرشحين"
+
+#: .\templates\matching\employer_matches.html:13
+msgid "AI Candidate Matches"
+msgstr "مطابقات المرشحين بالذكاء الاصطناعي"
+
+#: .\templates\matching\employer_matches.html:61
+msgid "Post a job to see AI-matched candidates!"
+msgstr "انشر وظيفة لرؤية المرشحين المطابقين بالذكاء الاصطناعي!"
+
+#: .\templates\matching\job_matches_summary.html:5
+msgid "Job Matches Summary"
+msgstr "ملخص مطابقات الوظائف"
+
+#: .\templates\matching\job_matches_summary.html:13
+msgid "Top Candidate Matches for"
+msgstr "أفضل مطابقات المرشحين لـ"
+
+#: .\templates\matching\job_matches_summary.html:15
+msgid "Total Matches:"
+msgstr "إجمالي المطابقات:"
+
+#: .\templates\matching\job_matches_summary.html:17
+#: .\templates\matching\job_resumes_matches.html:18
+msgid "Back to Job"
+msgstr "العودة إلى الوظيفة"
+
+#: .\templates\matching\job_matches_summary.html:64
+msgid "No matches found yet."
+msgstr "لم يتم العثور على مطابقات بعد."
+
+#: .\templates\matching\job_resumes_matches.html:5
+msgid "Candidate Matches for Job"
+msgstr "مطابقات المرشحين للوظيفة"
+
+#: .\templates\matching\job_resumes_matches.html:13
+msgid "AI Candidate Matches for"
+msgstr "مطابقات المرشحين بالذكاء الاصطناعي لـ"
+
+#: .\templates\matching\job_resumes_matches.html:15
+msgid "Total Resumes:"
+msgstr "إجمالي السير الذاتية:"
+
+#: .\templates\matching\job_resumes_matches.html:16
+#: .\templates\matching\resume_jobs_matches.html:16
+#, fuzzy
+#| msgid "Matching"
+msgid "Matched:"
+msgstr "المطابقة "
+
+#: .\templates\matching\job_resumes_matches.html:45
+#: .\templates\matching\resume_jobs_matches.html:45
+msgid "Key Reasons:"
+msgstr "الأسباب الرئيسية:"
+
+#: .\templates\matching\job_resumes_matches.html:54
+msgid "Candidate Strengths:"
+msgstr "نقاط قوة المرشح:"
+
+#: .\templates\matching\job_resumes_matches.html:63
+msgid "Gaps:"
+msgstr "فجوات:"
+
+#: .\templates\matching\job_resumes_matches.html:86
+#: .\templates\matching\resume_jobs_matches.html:86
+msgid "Top 10 Matches"
+msgstr "أفضل 10 مطابقات"
+
+#: .\templates\matching\job_resumes_matches.html:93
+msgid "No matching candidates found for this job."
+msgstr "لم يتم العثور على مرشحين مطابقين لهذه الوظيفة."
+
+#: .\templates\matching\match_detail.html:5
+msgid "Match Analysis"
+msgstr "تحليل المطابقة"
+
+#: .\templates\matching\match_detail.html:13
+msgid "AI Match Analysis"
+msgstr "تحليل المطابقة بالذكاء الاصطناعي"
+
+#: .\templates\matching\match_detail.html:22
+msgid "Resume"
+msgstr "السيرة الذاتية"
+
+#: .\templates\matching\match_detail.html:25
+#: .\templates\resumes\resume_detail.html:47
+msgid "Filename:"
+msgstr "اسم الملف:"
+
+#: .\templates\matching\match_detail.html:26
+msgid "Candidate:"
+msgstr "المرشح:"
+
+#: .\templates\matching\match_detail.html:27
+#: .\templates\resumes\resume_detail.html:50
+msgid "Uploaded:"
+msgstr "تم الرفع:"
+
+#: .\templates\matching\match_detail.html:37
+msgid "Title:"
+msgstr "العنوان:"
+
+#: .\templates\matching\match_detail.html:46
+msgid "Overall Match Score"
+msgstr "نسبة المطابقة الإجمالية"
+
+#: .\templates\matching\match_detail.html:57
+msgid "Key Reasons for this Match"
+msgstr "الأسباب الرئيسية لهذه المطابقة"
+
+#: .\templates\matching\match_detail.html:89
+msgid "Matched Required Skills"
+msgstr "المهارات المطلوبة المطابقة"
+
+#: .\templates\matching\match_detail.html:102
+msgid "Matched Languages"
+msgstr "اللغات المطابقة"
+
+#: .\templates\matching\match_detail.html:132
+msgid "Missing Required Skills"
+msgstr "المهارات المطلوبة المفقودة"
+
+#: .\templates\matching\match_detail.html:145
+msgid "Missing Languages"
+msgstr "اللغات المفقودة"
+
+#: .\templates\matching\match_detail.html:160
+msgid "Recommendations"
+msgstr "التوصيات"
+
+#: .\templates\matching\match_detail.html:174
+msgid "Apply Now"
+msgstr "تقدم الآن"
+
+#: .\templates\matching\match_detail.html:177
+msgid "Contact Candidate"
+msgstr "اتصال بالمرشح"
+
+#: .\templates\matching\match_detail.html:180
+msgid "Back to Matches"
+msgstr "العودة إلى المطابقات"
+
+#: .\templates\matching\resume_jobs_matches.html:5
+msgid "Job Matches for Resume"
+msgstr "مطابقات الوظائف للسيرة الذاتية"
+
+#: .\templates\matching\resume_jobs_matches.html:13
+msgid "AI Job Matches for"
+msgstr "مطابقات الوظائف بالذكاء الاصطناعي لـ"
+
+#: .\templates\matching\resume_jobs_matches.html:15
+msgid "Total Jobs:"
+msgstr "إجمالي الوظائف:"
+
+#: .\templates\matching\resume_jobs_matches.html:18
+#: .\templates\resumes\builder\add_certification.html:19
+#: .\templates\resumes\builder\add_education.html:19
+#: .\templates\resumes\builder\add_experience.html:19
+#: .\templates\resumes\builder\add_language.html:19
+#: .\templates\resumes\builder\add_project.html:19
+#: .\templates\resumes\builder\add_skill.html:19
+#: .\templates\resumes\builder\delete_confirm.html:19
+#: .\templates\resumes\builder\edit_experience.html:19
+#: .\templates\resumes\builder\edit_personal_info.html:19
+#: .\templates\resumes\builder\resume_edit.html:19
+msgid "Back to Resume"
+msgstr "العودة إلى السيرة الذاتية"
+
+#: .\templates\matching\resume_jobs_matches.html:54
+msgid "Your Strengths:"
+msgstr "نقاط قوتك:"
+
+#: .\templates\matching\resume_jobs_matches.html:63
+msgid "Areas to Improve:"
+msgstr "مجالات التحسين:"
+
+#: .\templates\matching\resume_jobs_matches.html:76
+msgid "View Job"
+msgstr "عرض الوظيفة"
+
+#: .\templates\matching\resume_jobs_matches.html:93
+msgid "No matching jobs found for this resume."
+msgstr "لم يتم العثور على وظائف مطابقة لهذه السيرة الذاتية."
+
+#: .\templates\resumes\builder\add_certification.html:30
+msgid "Certification Name"
+msgstr "اسم الشهادة"
+
+#: .\templates\resumes\builder\add_certification.html:40
+msgid "Issuing Organization"
+msgstr "الجهة المانحة"
+
+#: .\templates\resumes\builder\add_certification.html:50
+msgid "Issue Date"
+msgstr "تاريخ الإصدار"
+
+#: .\templates\resumes\builder\add_certification.html:60
+msgid "Expiry Date"
+msgstr "تاريخ الانتهاء"
+
+#: .\templates\resumes\builder\add_certification.html:68
+msgid "Leave empty if certification does not expire"
+msgstr "اتركه فارغًا إذا كانت الشهادة لا تنتهي صلاحيتها"
+
+#: .\templates\resumes\builder\add_certification.html:75
+msgid "Credential ID"
+msgstr "معرف الشهادة"
+
+#: .\templates\resumes\builder\add_certification.html:83
+msgid "Optional: Certificate ID or verification number"
+msgstr "اختياري: رقم الشهادة أو التحقق"
+
+#: .\templates\resumes\builder\add_certification.html:88
+msgid "Credential URL"
+msgstr "رابط الشهادة"
+
+#: .\templates\resumes\builder\add_certification.html:96
+msgid "Link to verify certification online"
+msgstr "رابط للتحقق من الشهادة عبر الإنترنت"
+
+#: .\templates\resumes\builder\add_certification.html:109
+#: .\templates\resumes\builder\resume_detail.html:341
+msgid "Add Certification"
+msgstr "إضافة شهادة"
+
+#: .\templates\resumes\builder\add_education.html:30
+msgid "Institution"
+msgstr "المؤسسة التعليمية"
+
+#: .\templates\resumes\builder\add_education.html:40
+msgid "Degree"
+msgstr "الدرجة العلمية"
+
+#: .\templates\resumes\builder\add_education.html:50
+msgid "Degree Type"
+msgstr "نوع الدرجة"
+
+#: .\templates\resumes\builder\add_education.html:60
+msgid "Field of Study"
+msgstr "مجال الدراسة"
+
+#: .\templates\resumes\builder\add_education.html:74
+#: .\templates\resumes\builder\add_project.html:55
+#: .\templates\resumes\builder\edit_experience.html:52
+msgid "Start Date"
+msgstr "تاريخ البدء"
+
+#: .\templates\resumes\builder\add_education.html:85
+#: .\templates\resumes\builder\add_project.html:66
+#: .\templates\resumes\builder\edit_experience.html:63
+msgid "End Date"
+msgstr "تاريخ الانتهاء"
+
+#: .\templates\resumes\builder\add_education.html:93
+msgid "Leave empty if currently studying"
+msgstr "اتركه فارغًا إذا كنت تدرس حاليًا"
+
+#: .\templates\resumes\builder\add_education.html:103
+msgid "Currently studying"
+msgstr "أدرس حاليًا"
+
+#: .\templates\resumes\builder\add_education.html:109
+msgid "GPA"
+msgstr "المعدل التراكمي"
+
+#: .\templates\resumes\builder\add_education.html:117
+msgid "Optional: e.g., 3.8/4.0"
+msgstr "اختياري: مثال: 3.8/4.0"
+
+#: .\templates\resumes\builder\add_education.html:122
+msgid "Description"
+msgstr "الوصف"
+
+#: .\templates\resumes\builder\add_education.html:130
+msgid "Additional details about your education"
+msgstr "تفاصيل إضافية عن تعليمك"
+
+#: .\templates\resumes\builder\add_education.html:143
+#: .\templates\resumes\builder\resume_detail.html:174
+#: .\templates\resumes\builder\resume_detail.html:198
+msgid "Add Education"
+msgstr "إضافة تعليم"
+
+#: .\templates\resumes\builder\add_experience.html:6
+#: .\templates\resumes\builder\add_experience.html:15
+#: .\templates\resumes\builder\resume_detail.html:155
+msgid "Add Work Experience"
+msgstr "إضافة خبرة عمل"
+
+#: .\templates\resumes\builder\add_experience.html:76
+msgid "Leave empty if you currently work here"
+msgstr "اتركه فارغًا إذا كنت تعمل هنا حاليًا"
+
+#: .\templates\resumes\builder\add_experience.html:102
+#: .\templates\resumes\builder\edit_experience.html:97
+msgid "Describe your responsibilities and daily tasks"
+msgstr "صف مسؤولياتك والمهام اليومية"
+
+#: .\templates\resumes\builder\add_experience.html:117
+msgid "Highlight your key achievements and accomplishments"
+msgstr "سلط الضوء على إنجازاتك وإنجازاتك الرئيسية"
+
+#: .\templates\resumes\builder\add_experience.html:127
+#: .\templates\resumes\builder\resume_detail.html:112
+msgid "Add Experience"
+msgstr "إضافة خبرة"
+
+#: .\templates\resumes\builder\add_language.html:30
+msgid "Language"
+msgstr "اللغة"
+
+#: .\templates\resumes\builder\add_language.html:38
+msgid "e.g., English, Arabic, French"
+msgstr "مثال: الإنجليزية، العربية، الفرنسية"
+
+#: .\templates\resumes\builder\add_language.html:45
+msgid "Proficiency Level"
+msgstr "مستوى الكفاءة"
+
+#: .\templates\resumes\builder\add_language.html:63
+#: .\templates\resumes\builder\resume_detail.html:260
+msgid "Add Language"
+msgstr "إضافة لغة"
+
+#: .\templates\resumes\builder\add_language.html:85
+msgid "e.g., English, Arabic, Spanish"
+msgstr "مثال: الإنجليزية، العربية، الإسبانية"
+
+#: .\templates\resumes\builder\add_project.html:30
+msgid "Project Name"
+msgstr "اسم المشروع"
+
+#: .\templates\resumes\builder\add_project.html:40
+msgid "Technologies Used"
+msgstr "التقنيات المستخدمة"
+
+#: .\templates\resumes\builder\add_project.html:48
+#: .\templates\resumes\builder\add_project.html:178
+msgid "e.g., Python, Django, React, PostgreSQL"
+msgstr "مثال: Python، Django، React، PostgreSQL"
+
+#: .\templates\resumes\builder\add_project.html:74
+msgid "Leave empty if ongoing project"
+msgstr "اتركه فارغًا إذا كان المشروع مستمرًا"
+
+#: .\templates\resumes\builder\add_project.html:83
+msgid "Project Description"
+msgstr "وصف المشروع"
+
+#: .\templates\resumes\builder\add_project.html:91
+msgid "Describe the project, your role, and what it accomplishes"
+msgstr "صف المشروع ودورك وما يحققه"
+
+#: .\templates\resumes\builder\add_project.html:96
+msgid "Project URL"
+msgstr "رابط المشروع"
+
+#: .\templates\resumes\builder\add_project.html:104
+msgid "Link to live project or demo"
+msgstr "رابط للمشروع الحي أو العرض التوضيحي"
+
+#: .\templates\resumes\builder\add_project.html:109
+msgid "GitHub URL"
+msgstr "رابط GitHub"
+
+#: .\templates\resumes\builder\add_project.html:117
+msgid "Link to source code repository"
+msgstr "رابط لمستودع التعليمات البرمجية المصدرية"
+
+#: .\templates\resumes\builder\add_project.html:130
+#: .\templates\resumes\builder\resume_detail.html:298
+msgid "Add Project"
+msgstr "إضافة مشروع"
+
+#: .\templates\resumes\builder\add_skill.html:30
+msgid "Skill Name"
+msgstr "اسم المهارة"
+
+#: .\templates\resumes\builder\add_skill.html:38
+msgid "e.g., Python, JavaScript, Project Management"
+msgstr "مثال: Python، JavaScript، إدارة المشاريع"
+
+#: .\templates\resumes\builder\add_skill.html:43
+msgid "Skill Level"
+msgstr "مستوى المهارة"
+
+#: .\templates\resumes\builder\add_skill.html:55
+msgid "Years of Experience"
+msgstr "سنوات الخبرة"
+
+#: .\templates\resumes\builder\add_skill.html:63
+msgid "Optional: Number of years you have used this skill"
+msgstr "اختياري: عدد السنوات التي استخدمت فيها هذه المهارة"
+
+#: .\templates\resumes\builder\add_skill.html:76
+#: .\templates\resumes\builder\resume_detail.html:217
+msgid "Add Skill"
+msgstr "إضافة مهارة"
+
+#: .\templates\resumes\builder\add_skill.html:99
+msgid "e.g., Python, JavaScript, Communication"
+msgstr "مثال: Python، JavaScript، التواصل"
+
+#: .\templates\resumes\builder\add_skill.html:107
+msgid "e.g., 3"
+msgstr "مثال: 3"
+
+#: .\templates\resumes\builder\delete_confirm.html:26
+msgid "Are you sure?"
+msgstr "هل أنت متأكد؟"
+
+#: .\templates\resumes\builder\delete_confirm.html:29
+msgid "This action cannot be undone. This will permanently delete the"
+msgstr "لا يمكن التراجع عن هذا الإجراء. سيتم حذف الـ بشكل دائم"
+
+#: .\templates\resumes\builder\edit_experience.html:30
+msgid "Company"
+msgstr "الشركة"
+
+#: .\templates\resumes\builder\edit_experience.html:40
+msgid "Position"
+msgstr "المنصب"
+
+#: .\templates\resumes\builder\edit_experience.html:71
+msgid "Leave empty if currently working here"
+msgstr "اتركه فارغًا إذا كنت تعمل هنا حاليًا"
+
+#: .\templates\resumes\builder\edit_experience.html:81
+msgid "Currently working here"
+msgstr "أعمل هنا حاليًا"
+
+#: .\templates\resumes\builder\edit_experience.html:102
+msgid "Key Achievements"
+msgstr "الإنجازات الرئيسية"
+
+#: .\templates\resumes\builder\edit_experience.html:110
+msgid "List your main accomplishments and impact"
+msgstr "اذكر إنجازاتك الرئيسية وتأثيرك"
+
+#: .\templates\resumes\builder\edit_experience.html:125
+msgid "Are you sure you want to delete this experience?"
+msgstr "هل أنت متأكد أنك تريد حذف هذه الخبرة؟"
+
+#: .\templates\resumes\builder\edit_experience.html:129
+#: .\templates\resumes\builder\resume_edit.html:96
+msgid "Save Changes"
+msgstr "حفظ التغييرات"
+
+#: .\templates\resumes\builder\edit_personal_info.html:6
+#: .\templates\resumes\builder\edit_personal_info.html:15
+msgid "Edit Personal Information"
+msgstr "تعديل المعلومات الشخصية"
+
+#: .\templates\resumes\builder\edit_personal_info.html:133
+msgid "Save Information"
+msgstr "حفظ المعلومات"
+
+#: .\templates\resumes\builder\resume_create.html:6
+#: .\templates\resumes\builder\resume_create.html:94
+msgid "Create Resume"
+msgstr "إنشاء سيرة ذاتية"
+
+#: .\templates\resumes\builder\resume_create.html:6
+#: .\templates\resumes\builder\resume_detail.html:6
+#: .\templates\resumes\builder\resume_list.html:6
+msgid "Resume Builder"
+msgstr "منشئ السيرة الذاتية"
+
+#: .\templates\resumes\builder\resume_create.html:15
+#: .\templates\resumes\builder\resume_list.html:19
+msgid "Create New Resume"
+msgstr "إنشاء سيرة ذاتية جديدة"
+
+#: .\templates\resumes\builder\resume_create.html:47
+msgid ""
+"Write a compelling summary that highlights your key qualifications and "
+"career goals."
+msgstr "اكتب ملخصًا جذابًا يسلط الضوء على مؤهلاتك الرئيسية وأهدافك المهنية."
+
+#: .\templates\resumes\builder\resume_create.html:65
+msgid "Quick Tips"
+msgstr "نصائح سريعة"
+
+#: .\templates\resumes\builder\resume_create.html:70
+msgid "Choose a descriptive title that reflects your career focus"
+msgstr "اختر عنوانًا وصفيًا يعكس تركيزك المهني"
+
+#: .\templates\resumes\builder\resume_create.html:74
+msgid "Keep your summary concise (2-3 sentences)"
+msgstr "احتفظ بملخصك موجزًا (2-3 جمل)"
+
+#: .\templates\resumes\builder\resume_create.html:78
+msgid "Highlight your most relevant skills and experience"
+msgstr "سلط الضوء على مهاراتك وخبراتك الأكثر صلة"
+
+#: .\templates\resumes\builder\resume_create.html:82
+msgid "You can always edit this information later"
+msgstr "يمكنك دائمًا تعديل هذه المعلومات لاحقًا"
+
+#: .\templates\resumes\builder\resume_detail.html:18
+#: .\templates\resumes\builder\resume_list.html:33
+msgid "Default"
+msgstr "افتراضي"
+
+#: .\templates\resumes\builder\resume_detail.html:24
+#: .\templates\site\home.html:103
+msgid "Find Matches"
+msgstr "البحث عن مطابقات"
+
+#: .\templates\resumes\builder\resume_detail.html:32
+#: .\templates\resumes\builder\resume_edit.html:6
+msgid "Edit Resume"
+msgstr "تعديل السيرة الذاتية"
+
+#: .\templates\resumes\builder\resume_detail.html:35
+msgid "Print Resume"
+msgstr "طباعة السيرة الذاتية"
+
+#: .\templates\resumes\builder\resume_detail.html:39
+#: .\templates\resumes\resume_delete.html:4
+msgid "Delete Resume"
+msgstr "حذف السيرة الذاتية"
+
+#: .\templates\resumes\builder\resume_detail.html:50
+#: .\templates\resumes\builder\resume_edit.html:40
+msgid "Professional Summary"
+msgstr "ملخص مهني"
+
+#: .\templates\resumes\builder\resume_detail.html:62
+msgid "Personal Information"
+msgstr "المعلومات الشخصية"
+
+#: .\templates\resumes\builder\resume_detail.html:72
+msgid "Name:"
+msgstr "الاسم:"
+
+#: .\templates\resumes\builder\resume_detail.html:73
+msgid "Email:"
+msgstr "البريد الإلكتروني:"
+
+#: .\templates\resumes\builder\resume_detail.html:74
+msgid "Phone:"
+msgstr "الهاتف:"
+
+#: .\templates\resumes\builder\resume_detail.html:75
+msgid "Location:"
+msgstr "الموقع:"
+
+#: .\templates\resumes\builder\resume_detail.html:79
+msgid "LinkedIn:"
+msgstr "لينكد إن:"
+
+#: .\templates\resumes\builder\resume_detail.html:82
+msgid "GitHub:"
+msgstr "GitHub:"
+
+#: .\templates\resumes\builder\resume_detail.html:85
+msgid "Website:"
+msgstr "الموقع الإلكتروني:"
+
+#: .\templates\resumes\builder\resume_detail.html:91
+msgid "No personal information added yet"
+msgstr "لم تتم إضافة معلومات شخصية بعد"
+
+#: .\templates\resumes\builder\resume_detail.html:93
+msgid "Add Personal Information"
+msgstr "إضافة معلومات شخصية"
+
+#: .\templates\resumes\builder\resume_detail.html:108
+msgid "Work Experience"
+msgstr "خبرة العمل"
+
+#: .\templates\resumes\builder\resume_detail.html:128
+#: .\templates\resumes\builder\resume_detail.html:186
+#: .\templates\resumes\builder\resume_detail.html:313
+msgid "Present"
+msgstr "حاليًا"
+
+#: .\templates\resumes\builder\resume_detail.html:147
+msgid "Key Achievements:"
+msgstr "الإنجازات الرئيسية:"
+
+#: .\templates\resumes\builder\resume_detail.html:153
+msgid "No work experience added yet"
+msgstr "لم تتم إضافة خبرة عمل بعد"
+
+#: .\templates\resumes\builder\resume_detail.html:170
+#: .\templates\resumes\builder\resume_list.html:56
+#: .\templates\resumes\resume_detail.html:118
+#: .\templates\resumes\resume_list.html:109
+msgid "Education"
+msgstr "التعليم"
+
+#: .\templates\resumes\builder\resume_detail.html:196
+msgid "No education information added yet"
+msgstr "لم تتم إضافة معلومات تعليمية بعد"
+
+#: .\templates\resumes\builder\resume_detail.html:213
+#: .\templates\resumes\builder\resume_list.html:50
+#: .\templates\resumes\resume_list.html:94
+msgid "Skills"
+msgstr "المهارات"
+
+#: .\templates\resumes\builder\resume_detail.html:239
+msgid "No skills added yet"
+msgstr "لم تتم إضافة مهارات بعد"
+
+#: .\templates\resumes\builder\resume_detail.html:241
+msgid "Add Skills"
+msgstr "إضافة مهارات"
+
+#: .\templates\resumes\builder\resume_detail.html:256
+#: .\templates\resumes\resume_detail.html:96
+#: .\templates\resumes\resume_list.html:120
+msgid "Languages"
+msgstr "اللغات"
+
+#: .\templates\resumes\builder\resume_detail.html:277
+msgid "No languages added yet"
+msgstr "لم تتم إضافة لغات بعد"
+
+#: .\templates\resumes\builder\resume_detail.html:279
+msgid "Add Languages"
+msgstr "إضافة لغات"
+
+#: .\templates\resumes\builder\resume_detail.html:294
+msgid "Projects"
+msgstr "المشاريع"
+
+#: .\templates\resumes\builder\resume_detail.html:307
+msgid "Technologies:"
+msgstr "التقنيات:"
+
+#: .\templates\resumes\builder\resume_detail.html:320
+msgid "No projects added yet"
+msgstr "لم تتم إضافة مشاريع بعد"
+
+#: .\templates\resumes\builder\resume_detail.html:322
+msgid "Add Projects"
+msgstr "إضافة مشاريع"
+
+#: .\templates\resumes\builder\resume_detail.html:337
+msgid "Certifications"
+msgstr "الشهادات"
+
+#: .\templates\resumes\builder\resume_detail.html:351
+msgid "Issued:"
+msgstr "أُصدرت:"
+
+#: .\templates\resumes\builder\resume_detail.html:352
+msgid "Expires:"
+msgstr "تنتهي:"
+
+#: .\templates\resumes\builder\resume_detail.html:358
+msgid "No certifications added yet"
+msgstr "لم تتم إضافة شهادات بعد"
+
+#: .\templates\resumes\builder\resume_detail.html:360
+msgid "Add Certifications"
+msgstr "إضافة شهادات"
+
+#: .\templates\resumes\builder\resume_detail.html:385
+msgid ""
+"Are you sure you want to delete this resume? This action cannot be undone."
+msgstr ""
+"هل أنت متأكد أنك تريد حذف هذه السيرة الذاتية؟ لا يمكن التراجع عن هذا الإجراء."
+
+#: .\templates\resumes\builder\resume_detail.html:432
+#: .\templates\resumes\builder\resume_list.html:169
+#: .\templates\resumes\builder\resume_list.html:189
+#: .\templates\resumes\builder\resume_list.html:209
+#: .\templates\resumes\profile.html:227 .\templates\resumes\profile.html:259
+#: .\templates\resumes\profile.html:289
+msgid "An error occurred"
+msgstr "حدث خطأ"
+
+#: .\templates\resumes\builder\resume_edit.html:30
+msgid "Resume Title"
+msgstr "عنوان السيرة الذاتية"
+
+#: .\templates\resumes\builder\resume_edit.html:48
+msgid "Brief summary of your professional background and career objectives"
+msgstr "ملخص موجز لخلفيتك المهنية وأهدافك الوظيفية"
+
+#: .\templates\resumes\builder\resume_edit.html:57
+#: .\templates\resumes\profile.html:127
+msgid "Settings"
+msgstr "الإعدادات"
+
+#: .\templates\resumes\builder\resume_edit.html:65
+msgid "Set as default resume"
+msgstr "تعيين كسيرة ذاتية افتراضية"
+
+#: .\templates\resumes\builder\resume_edit.html:69
+msgid "This resume will be used by default for job matching"
+msgstr "سيتم استخدام هذه السيرة الذاتية افتراضيًا لمطابقة الوظائف"
+
+#: .\templates\resumes\builder\resume_edit.html:81
+msgid "Inactive resumes won't be shown in job matching"
+msgstr "لن يتم عرض السير الذاتية غير النشطة في مطابقة الوظائف"
+
+#: .\templates\resumes\builder\resume_edit.html:118
+msgid "e.g., Software Developer Resume"
+msgstr "مثال: سيرة ذاتية لمطور برمجيات"
+
+#: .\templates\resumes\builder\resume_edit.html:124
+msgid ""
+"e.g., Experienced software developer with 5+ years in web development..."
+msgstr "مثال: مطور برمجيات ذو خبرة لأكثر من 5 سنوات في تطوير الويب..."
+
+#: .\templates\resumes\builder\resume_list.html:15
+msgid "My Built Resumes"
+msgstr "سيري الذاتية المبنية"
+
+#: .\templates\resumes\builder\resume_list.html:44
+#: .\templates\resumes\resume_detail.html:137
+#: .\templates\resumes\resume_list.html:133
+msgid "Experience"
+msgstr "الخبرة"
+
+#: .\templates\resumes\builder\resume_list.html:63
+msgid "Updated"
+msgstr "محدث"
+
+#: .\templates\resumes\builder\resume_list.html:70
+#: .\templates\resumes\profile.html:101
+msgid "View"
+msgstr "عرض"
+
+#: .\templates\resumes\builder\resume_list.html:87
+msgid "Set as Default"
+msgstr "تعيين كافتراضي"
+
+#: .\templates\resumes\builder\resume_list.html:93
+msgid "Duplicate"
+msgstr "نسخ"
+
+#: .\templates\resumes\builder\resume_list.html:112
+msgid "No resumes yet"
+msgstr "لا توجد سير ذاتية بعد"
+
+#: .\templates\resumes\builder\resume_list.html:113
+msgid "Create your first professional resume to get started"
+msgstr "أنشئ سيرتك الذاتية المهنية الأولى للبدء"
+
+#: .\templates\resumes\builder\resume_list.html:115
+msgid "Create Your First Resume"
+msgstr "أنشئ سيرتك الذاتية الأولى"
+
+#: .\templates\resumes\builder\resume_list.html:159
+msgid "Set this resume as your default?"
+msgstr "هل تريد تعيين هذه السيرة الذاتية كافتراضية؟"
+
+#: .\templates\resumes\builder\resume_list.html:179
+msgid "Create a copy of this resume?"
+msgstr "هل تريد إنشاء نسخة من هذه السيرة الذاتية؟"
+
+#: .\templates\resumes\builder\resume_list.html:199
+#: .\templates\resumes\resume_delete.html:16
+msgid "Are you sure you want to delete this resume?"
+msgstr "هل أنت متأكد أنك تريد حذف هذه السيرة الذاتية؟"
+
+#: .\templates\resumes\my_resumes.html:20
+msgid "Upload New Resume"
+msgstr "رفع سيرة ذاتية جديدة"
+
+#: .\templates\resumes\my_resumes.html:33
+msgid "Total Resumes"
+msgstr "إجمالي السير الذاتية"
+
+#: .\templates\resumes\my_resumes.html:45
+#: .\templates\resumes\my_resumes.html:93
+#: .\templates\resumes\resume_detail.html:56
+#: .\templates\resumes\resume_list.html:84
+msgid "Processed"
+msgstr "مُعالَج"
+
+#: .\templates\resumes\my_resumes.html:57
+msgid "Total Job Matches"
+msgstr "إجمالي مطابقات الوظائف"
+
+#: .\templates\resumes\my_resumes.html:75
+msgid "Filename"
+msgstr "اسم الملف"
+
+#: .\templates\resumes\my_resumes.html:76
+msgid "Uploaded"
+msgstr "تم الرفع"
+
+#: .\templates\resumes\my_resumes.html:78
+msgid "Job Matches"
+msgstr "مطابقات الوظائف"
+
+#: .\templates\resumes\my_resumes.html:95
+#: .\templates\resumes\resume_detail.html:58
+msgid "Processing..."
+msgstr "جاري المعالجة..."
+
+#: .\templates\resumes\my_resumes.html:102
+msgid "No matches yet"
+msgstr "لا توجد مطابقات بعد"
+
+#: .\templates\resumes\my_resumes.html:126
+msgid "You haven't uploaded any resumes yet."
+msgstr "لم ترفع أي سير ذاتية بعد."
+
+#: .\templates\resumes\my_resumes.html:129
+msgid "Upload Your First Resume"
+msgstr "ارفع سيرتك الذاتية الأولى"
+
+#: .\templates\resumes\my_resumes.html:148
+msgid "Tips for Better Resumes"
+msgstr "نصائح لسير ذاتية أفضل"
+
+#: .\templates\resumes\my_resumes.html:158
+msgid "Format Matters"
+msgstr "التنسيق مهم"
+
+#: .\templates\resumes\my_resumes.html:160
+msgid "Use clear headings and bullet points for better parsing."
+msgstr "استخدم عناوين واضحة ونقاط تعداد لتحليل أفضل."
+
+#: .\templates\resumes\my_resumes.html:172
+msgid "Update Regularly"
+msgstr "تحديث منتظم"
+
+#: .\templates\resumes\my_resumes.html:174
+msgid "Keep your skills and experience up to date for better matches."
+msgstr "احتفظ بمهاراتك وخبراتك محدثة لمطابقات أفضل."
+
+#: .\templates\resumes\my_resumes.html:186
+msgid "Multiple Versions"
+msgstr "إصدارات متعددة"
+
+#: .\templates\resumes\my_resumes.html:188
+msgid "Upload different resumes tailored for different job types."
+msgstr "ارفع سير ذاتية مختلفة مصممة لأنواع الوظائف المختلفة."
+
+#: .\templates\resumes\profile.html:15
+msgid "My Resume Profile"
+msgstr "ملف سيرتي الذاتية الشخصية"
+
+#: .\templates\resumes\profile.html:37 .\templates\resumes\profile.html:146
+msgid "Primary Resume Type"
+msgstr "نوع السيرة الذاتية الأساسية"
+
+#: .\templates\resumes\profile.html:44
+msgid "Both Resumes"
+msgstr "كلا السير الذاتيتين"
+
+#: .\templates\resumes\profile.html:57
+msgid "Matching Status"
+msgstr "حالة المطابقة"
+
+#: .\templates\resumes\profile.html:91
+msgid "Primary"
+msgstr "أساسي"
+
+#: .\templates\resumes\profile.html:106
+msgid "Download"
+msgstr "تنزيل"
+
+#: .\templates\resumes\profile.html:113
+msgid "Set as Primary"
+msgstr "تعيين كأساسي"
+
+#: .\templates\resumes\profile.html:136
+msgid "Enable matching for employers"
+msgstr "تفعيل المطابقة لأصحاب العمل"
+
+#: .\templates\resumes\profile.html:139
+msgid "When enabled, employers can see your resume in their matches"
+msgstr "عند التفعيل، يمكن لأصحاب العمل رؤية سيرتك الذاتية في مطابقاتهم"
+
+#: .\templates\resumes\profile.html:155
+msgid "Both (Prioritize Built)"
+msgstr "كليهما (الأولوية للمبنية)"
+
+#: .\templates\resumes\profile.html:159
+msgid "Choose which resume type employers see first in matching"
+msgstr "اختر نوع السيرة الذاتية الذي يراه أصحاب العمل أولاً في المطابقة"
+
+#: .\templates\resumes\profile.html:170
+msgid "No Resume Found"
+msgstr "لم يتم العثور على سيرة ذاتية"
+
+#: .\templates\resumes\profile.html:172
+msgid ""
+"You don't have any resume yet. Create or upload a resume to get started."
+msgstr "ليس لديك أي سيرة ذاتية بعد. أنشئ أو ارفع سيرة ذاتية للبدء."
+
+#: .\templates\resumes\resume_delete.html:20
+msgid "Uploaded on"
+msgstr "تم الرفع في"
+
+#: .\templates\resumes\resume_detail.html:31
+msgid "Back"
+msgstr "رجوع"
+
+#: .\templates\resumes\resume_detail.html:43
+msgid "File Information"
+msgstr "معلومات الملف"
+
+#: .\templates\resumes\resume_detail.html:48
+msgid "Size:"
+msgstr "الحجم:"
+
+#: .\templates\resumes\resume_detail.html:49
+msgid "Type:"
+msgstr "النوع:"
+
+#: .\templates\resumes\resume_detail.html:52
+msgid "No file uploaded for this resume."
+msgstr "لم يتم رفع ملف لهذه السيرة الذاتية."
+
+#: .\templates\resumes\resume_detail.html:63
+msgid "Download Original"
+msgstr "تنزيل الأصل"
+
+#: .\templates\resumes\resume_detail.html:76
+msgid "Extracted Skills"
+msgstr "المهارات المستخرجة"
+
+#: .\templates\resumes\resume_detail.html:88
+msgid "No skills extracted yet."
+msgstr "لم يتم استخراج مهارات بعد."
+
+#: .\templates\resumes\resume_detail.html:108
+msgid "No languages detected."
+msgstr "لم يتم اكتشاف لغات."
+
+#: .\templates\resumes\resume_detail.html:128
+msgid "No education information extracted."
+msgstr "لم يتم استخراج معلومات تعليمية."
+
+#: .\templates\resumes\resume_detail.html:147
+msgid "No experience information extracted."
+msgstr "لم يتم استخراج معلومات خبرة."
+
+#: .\templates\resumes\resume_detail.html:160
+msgid "Extracted Text"
+msgstr "النص المستخرج"
+
+#: .\templates\resumes\resume_detail.html:168
+msgid "Show / Hide Text"
+msgstr "إظهار/إخفاء النص"
+
+#: .\templates\resumes\resume_list.html:4
+msgid "Browse Resumes"
+msgstr "تصفح السير الذاتية"
+
+#: .\templates\resumes\resume_list.html:13
+msgid "Candidate Resumes"
+msgstr "سير المرشحين الذاتية"
+
+#: .\templates\resumes\resume_list.html:15
+msgid ""
+"Browse through qualified candidates and find the perfect match for your "
+"company."
+msgstr "تصفح بين المرشحين المؤهلين وابحث عن المطابقة المثالية لشركتك."
+
+#: .\templates\resumes\resume_list.html:17
+msgid "resumes"
+msgstr "سير ذاتية"
+
+#: .\templates\resumes\resume_list.html:39
+msgid "Search by skills or education..."
+msgstr "البحث بالمهارات أو التعليم..."
+
+#: .\templates\resumes\resume_list.html:45
+msgid "All Skills"
+msgstr "جميع المهارات"
+
+#: .\templates\resumes\resume_list.html:53
+msgid "All Education"
+msgstr "جميع المؤهلات التعليمية"
+
+#: .\templates\resumes\resume_list.html:86
+msgid "Processing"
+msgstr "قيد المعالجة"
+
+#: .\templates\resumes\resume_list.html:161
+msgid "No Resumes Found"
+msgstr "لم يتم العثور على سير ذاتية"
+
+#: .\templates\resumes\resume_list.html:163
+msgid "No resumes match your current filters."
+msgstr "لا توجد سير ذاتية تطابق الفلاتر الحالية."
+
+#: .\templates\resumes\resume_list.html:228
+msgid "Contact feature will be implemented soon!"
+msgstr "سيتم تنفيذ ميزة الاتصال قريبًا!"
+
+#: .\templates\resumes\resume_update.html:5
+#: .\templates\resumes\resume_update.html:49
+msgid "Update Resume"
+msgstr "تحديث السيرة الذاتية"
+
+#: .\templates\resumes\resume_update.html:13
+msgid "Update Your Resume"
+msgstr "تحديث سيرتك الذاتية"
+
+#: .\templates\resumes\resume_update.html:31
+msgid "Current File:"
+msgstr "الملف الحالي:"
+
+#: .\templates\resumes\resume_update.html:36
+#: .\templates\resumes\resume_update.html:91
+msgid "Choose new file (optional)..."
+msgstr "اختر ملفًا جديدًا (اختياري)..."
+
+#: .\templates\resumes\resume_update.html:55
+msgid "If you upload a new file, AI will re-process it automatically."
+msgstr "إذا قمت بتحميل ملف جديد، فسيعيد الذكاء الاصطناعي معالجته تلقائيًا."
+
+#: .\templates\resumes\resume_update.html:65
+msgid "Back to Details"
+msgstr "العودة إلى التفاصيل"
+
+#: .\templates\resumes\resume_update.html:76
+#: .\templates\resumes\resume_upload.html:96
+msgid "Browse"
+msgstr "تصفح"
+
+#: .\templates\resumes\resume_upload.html:13
+msgid "Upload Your Resume"
+msgstr "ارفع سيرتك الذاتية"
+
+#: .\templates\resumes\resume_upload.html:31
+msgid "Select Resume File"
+msgstr "اختر ملف السيرة الذاتية"
+
+#: .\templates\resumes\resume_upload.html:36
+#: .\templates\resumes\resume_upload.html:115
+msgid "Choose file..."
+msgstr "اختر ملفًا..."
+
+#: .\templates\resumes\resume_upload.html:49
+msgid "Upload & Process Resume"
+msgstr "رفع ومعالجة السيرة الذاتية"
+
+#: .\templates\resumes\resume_upload.html:55
+msgid "Supported formats: PDF, DOC, DOCX (Max 5MB)"
+msgstr "الصيغ المدعومة: PDF، DOC، DOCX (الحد الأقصى 5 ميجابايت)"
+
+#: .\templates\resumes\resume_upload.html:58
+msgid ""
+"After upload, AI will analyze your resume and extract skills, experience, "
+"etc."
+msgstr ""
+"بعد الرفع، سيقوم الذكاء الاصطناعي بتحليل سيرتك الذاتية واستخراج المهارات "
+"والخبرات وما إلى ذلك."
+
+#: .\templates\resumes\resume_upload.html:69
+msgid "Tips for better results"
+msgstr "نصائح لنتائج أفضل"
+
+#: .\templates\resumes\resume_upload.html:71
+msgid "Use clear section headings (Experience, Education, Skills)"
+msgstr "استخدم عناوين أقسام واضحة (خبرة، تعليم، مهارات)"
+
+#: .\templates\resumes\resume_upload.html:72
+msgid "List specific technical skills and tools"
+msgstr "اذكر المهارات والأدوات التقنية المحددة"
+
+#: .\templates\resumes\resume_upload.html:73
+msgid "Include certifications and degrees"
+msgstr "تضمين الشهادات والدرجات العلمية"
+
+#: .\templates\resumes\resume_upload.html:74
+msgid "Keep formatting simple and clean"
+msgstr "حافظ على التنسيق بسيطًا ونظيفًا"
+
+#: .\templates\resumes\resume_upload.html:75
+msgid "Update your resume regularly"
+msgstr "حدث سيرتك الذاتية بانتظام"
+
+#: .\templates\resumes\resume_upload.html:82
+msgid "Back to My Resumes"
+msgstr "العودة إلى سيري الذاتية"
+
+#: .\templates\resumes\skills_gap_analysis.html:7
+#: .\templates\resumes\skills_gap_analysis.html:14
+msgid "Skills Gap Analysis"
+msgstr "تحليل فجوة المهارات"
+
+#: .\templates\resumes\skills_gap_analysis.html:24
+msgid "Your Skill Coverage"
+msgstr "تغطية مهاراتك"
+
+#: .\templates\resumes\skills_gap_analysis.html:34
+#, python-format
+msgid ""
+"You have %(current_skills|length)s out of %(total_market_skills)s in-demand "
+"skills"
+msgstr ""
+"لديك %(current_skills|length)s من أصل %(total_market_skills)s مهارة مطلوبة "
+"في السوق"
+
+#: .\templates\resumes\skills_gap_analysis.html:46
+msgid "Your Strengths"
+msgstr "نقاط قوتك"
+
+#: .\templates\resumes\skills_gap_analysis.html:73
+msgid "Priority Skills to Learn"
+msgstr "المهارات ذات الأولوية للتعلم"
+
+#: .\templates\resumes\skills_gap_analysis.html:80
+msgid "Demand"
+msgstr "الطلب"
+
+#: .\templates\resumes\skills_gap_analysis.html:81
+msgid "Difficulty"
+msgstr "الصعوبة"
+
+#: .\templates\resumes\skills_gap_analysis.html:82
+msgid "Learning Time"
+msgstr "وقت التعلم"
+
+#: .\templates\resumes\skills_gap_analysis.html:83
+msgid "Salary Impact"
+msgstr "تأثير الراتب"
+
+#: .\templates\site\base.html:8 .\templates\site\home.html:5
+msgid "Smart Hiring Platform"
+msgstr "منصة التوظيف الذكي"
+
+#: .\templates\site\footer.html:8
+msgid "Smart Hiring"
+msgstr "التوظيف الذكي"
+
+#: .\templates\site\footer.html:10
+msgid ""
+"Intelligent recruitment platform connecting employers with qualified "
+"candidates."
+msgstr "منصة توظيف ذكية تربط بين أصحاب العمل والمرشحين المؤهلين."
+
+#: .\templates\site\footer.html:21
+msgid "For Employers"
+msgstr "لأصحاب العمل"
+
+#: .\templates\site\footer.html:23
+msgid "Post Jobs"
+msgstr "نشر وظائف"
+
+#: .\templates\site\footer.html:24
+msgid "Find Candidates"
+msgstr "البحث عن مرشحين"
+
+#: .\templates\site\footer.html:25
+msgid "Pricing"
+msgstr "الأسعار"
+
+#: .\templates\site\footer.html:30
+msgid "For Candidates"
+msgstr "للمرشحين"
+
+#: .\templates\site\footer.html:32
+msgid "Find Jobs"
+msgstr "البحث عن وظائف"
+
+#: .\templates\site\footer.html:34
+msgid "Career Advice"
+msgstr "نصائح مهنية"
+
+#: .\templates\site\footer.html:39
+msgid "Contact Us"
+msgstr "اتصل بنا"
+
+#: .\templates\site\footer.html:53
+msgid "Smart Hiring. All rights reserved."
+msgstr "التوظيف الذكي. جميع الحقوق محفوظة."
+
+#: .\templates\site\footer.html:57
+msgid "Privacy Policy"
+msgstr "سياسة الخصوصية"
+
+#: .\templates\site\footer.html:58
+msgid "Terms of Service"
+msgstr "شروط الخدمة"
+
+#: .\templates\site\footer.html:59
+msgid "Cookies"
+msgstr "الكوكيز"
+
+#: .\templates\site\header.html:23
+msgid "Home"
+msgstr "الرئيسية"
+
+#: .\templates\site\home.html:15
+msgid "Find Your Dream Job or Perfect Candidate"
+msgstr "ابحث عن وظيفة أحلامك أو المرشح المثالي"
+
+#: .\templates\site\home.html:18
+msgid ""
+"Intelligent recruitment platform connecting employers with qualified "
+"candidates using AI-powered matching."
+msgstr ""
+"منصة توظيف ذكية تربط بين أصحاب العمل والمرشحين المؤهلين باستخدام المطابقة "
+"المدعومة بالذكاء الاصطناعي."
+
+#: .\templates\site\home.html:23
+msgid "Get Started"
+msgstr "ابدأ الآن"
+
+#: .\templates\site\home.html:30
+msgid "Go to Dashboard"
+msgstr "اذهب إلى لوحة التحكم"
+
+#: .\templates\site\home.html:47
+msgid "Why Choose Our Platform"
+msgstr "لماذا تختار منصتنا"
+
+#: .\templates\site\home.html:55
+msgid "Smart Matching"
+msgstr "مطابقة ذكية"
+
+#: .\templates\site\home.html:56
+msgid "AI-powered matching between job requirements and candidate skills."
+msgstr "مطابقة مدعومة بالذكاء الاصطناعي بين متطلبات الوظائف ومهارات المرشحين."
+
+#: .\templates\site\home.html:66
+msgid "Fast & Efficient"
+msgstr "سريع وفعال"
+
+#: .\templates\site\home.html:67
+#, python-format
+msgid "Reduce hiring time by 70%% with our intelligent screening system."
+msgstr "قلل وقت التوظيف بنسبة 70%% باستخدام نظام الفحص الذكي لدينا."
+
+#: .\templates\site\home.html:77
+msgid "Secure & Reliable"
+msgstr "آمن وموثوق"
+
+#: .\templates\site\home.html:78
+msgid "Your data is protected with enterprise-grade security."
+msgstr "يتم حماية بياناتك بأمان على مستوى المؤسسات."
+
+#: .\templates\site\home.html:89
+msgid "How It Works"
+msgstr "كيف تعمل"
+
+#: .\templates\site\home.html:94
+msgid "Create your account as employer or candidate."
+msgstr "أنشئ حسابك كصاحب عمل أو مرشح."
+
+#: .\templates\site\home.html:98
+msgid "Create Profile"
+msgstr "إنشاء ملف شخصي"
+
+#: .\templates\site\home.html:99
+msgid "Add your details, skills, or job requirements."
+msgstr "أضف تفاصيلك أو مهاراتك أو متطلبات الوظيفة."
+
+#: .\templates\site\home.html:104
+msgid "Our AI system finds the best matches for you."
+msgstr "يجد نظام الذكاء الاصطناعي الخاص بنا أفضل المطابقات لك."
+
+#: .\templates\site\home.html:108
+msgid "Connect"
+msgstr "اتصال"
+
+#: .\templates\site\home.html:109
+msgid "Communicate and hire the perfect match."
+msgstr "تواصل وقم بتوظيف المطابقة المثالية."
+
+#~ msgid "English"
+#~ msgstr "الإنجليزية"
+
+#~ msgid "Arabic"
+#~ msgstr "العربية"
+
+#~ msgid "Messages"
+#~ msgstr "الرسائل"
+
+#~ msgid "Site Maps"
+#~ msgstr "خرائط الموقع"
+
+#~ msgid "Static Files"
+#~ msgstr "الملفات الثابتة"
+
+#~ msgid "…"
+#~ msgstr "…"
+
+#~ msgid "That page number is not an integer"
+#~ msgstr "رقم الصفحة ليس عددًا صحيحًا"
+
+#~ msgid "That page number is less than 1"
+#~ msgstr "رقم الصفحة أقل من 1"
+
+#~ msgid "That page contains no results"
+#~ msgstr "هذه الصفحة لا تحتوي على نتائج"
+
+#~ msgid "Enter a valid value."
+#~ msgstr "أدخل قيمة صحيحة."
+
+#~ msgid "Enter a valid domain name."
+#~ msgstr "أدخل اسم نطاق صحيح."
+
+#~ msgid "Enter a valid URL."
+#~ msgstr "أدخل رابطًا صحيحًا."
+
+#~ msgid "Enter a valid integer."
+#~ msgstr "أدخل عددًا صحيحًا."
+
+#~ msgid "Enter a valid email address."
+#~ msgstr "أدخل بريدًا إلكترونيًا صحيحًا."
+
+#~ msgid "Enter a number."
+#~ msgstr "أدخل رقمًا."
+
+#~ msgid "This field is required."
+#~ msgstr "هذا الحقل مطلوب."
+
+#~ msgid "Yes"
+#~ msgstr "نعم"
+
+#~ msgid "No"
+#~ msgstr "لا"
+
+#~ msgid "Unknown"
+#~ msgstr "غير معروف"
+
+#~ msgctxt "Task"
+#~ msgid "Ready"
+#~ msgstr "جاهز"
+
+#~ msgctxt "Task"
+#~ msgid "Running"
+#~ msgstr "قيد التشغيل"
+
+#~ msgctxt "Task"
+#~ msgid "Failed"
+#~ msgstr "فشل"
+
+#~ msgctxt "Task"
+#~ msgid "Successful"
+#~ msgstr "ناجح"
+
+#~ msgid "Monday"
+#~ msgstr "الاثنين"
+
+#~ msgid "Tuesday"
+#~ msgstr "الثلاثاء"
+
+#~ msgid "Wednesday"
+#~ msgstr "الأربعاء"
+
+#~ msgid "Thursday"
+#~ msgstr "الخميس"
+
+#~ msgid "Friday"
+#~ msgstr "الجمعة"
+
+#~ msgid "Saturday"
+#~ msgstr "السبت"
+
+#~ msgid "Sunday"
+#~ msgstr "الأحد"
+
+#~ msgid "January"
+#~ msgstr "يناير"
+
+#~ msgid "February"
+#~ msgstr "فبراير"
+
+#~ msgid "March"
+#~ msgstr "مارس"
+
+#~ msgid "April"
+#~ msgstr "أبريل"
+
+#~ msgid "May"
+#~ msgstr "مايو"
+
+#~ msgid "June"
+#~ msgstr "يونيو"
+
+#~ msgid "July"
+#~ msgstr "يوليو"
+
+#~ msgid "August"
+#~ msgstr "أغسطس"
+
+#~ msgid "September"
+#~ msgstr "سبتمبر"
+
+#~ msgid "October"
+#~ msgstr "أكتوبر"
+
+#~ msgid "November"
+#~ msgstr "نوفمبر"
+
+#~ msgid "December"
+#~ msgstr "ديسمبر"
+
+#~ msgid "Forbidden"
+#~ msgstr "ممنوع"
+
+#~ msgid "CSRF verification failed. Request aborted."
+#~ msgstr "فشل التحقق من CSRF. تم إلغاء الطلب."
+
+#~ msgid "Clear"
+#~ msgstr "مسح"
+
+#~ msgid "Image"
+#~ msgstr "صورة"
+
+#~ msgid "Text"
+#~ msgstr "نص"
+
+#~ msgid "Time"
+#~ msgstr "الوقت"
+
+#~ msgid "Date (with time)"
+#~ msgstr "تاريخ (مع وقت)"
+
+#~ msgid "Date (without time)"
+#~ msgstr "تاريخ (بدون وقت)"
+
+#~ msgid "Email address"
+#~ msgstr "البريد الإلكتروني"
+
+#~ msgid "URL"
+#~ msgstr "رابط"
+
+#~ msgid "Integer"
+#~ msgstr "رقم صحيح"
+
+#: templates\base\base.html:36
+msgid "Logout"
+msgstr "تسجيل الخروج"
+
+#: templates\base\base.html:46
+msgid "AI Matcher"
+msgstr "المطابق الذكي"
+
+#: templates\base\base.html:56
+msgid "Dashboard"
+msgstr "لوحة التحكم"
+
+#: templates\base\base.html:64
+msgid "My Resumes"
+msgstr "سيرتي الذاتية"
+
+#: templates\base\base.html:70
+msgid "My Matches"
+msgstr "مطابقاتي"
+
+#: templates\base\base.html:77
+msgid "My Jobs"
+msgstr "وظائفي"
+
+#: templates\base\base.html:83
+msgid "AI Matches"
+msgstr "المطابقات الذكية"
+#~ msgstr "عدد صحيح"
+
+#~ msgid "Decimal number"
+#~ msgstr "عدد عشري"
+
+#~ msgid "Boolean (Either True or False)"
+#~ msgstr "قيمة منطقية (صحيح أو خطأ)"
+
+#~ msgid "Order"
+#~ msgstr "ترتيب"

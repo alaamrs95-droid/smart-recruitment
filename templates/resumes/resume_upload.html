@@ -1,0 +1,118 @@
+<!-- templates/resumes/resume_upload.html -->
+{% extends "base/base.html" %}
+{% load static i18n %}
+
+{% block title %}{% trans "Upload Resume" %} - منصة توظيف ذكية{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-8 col-lg-6">
+            <div class="card card-primary card-outline">
+                <div class="card-header text-center">
+                    <h3 class="mb-0"><i class="fas fa-upload"></i> {% trans "Upload Your Resume" %}</h3>
+                </div>
+                <div class="card-body">
+                    <!-- عرض الرسائل -->
+                    {% if messages %}
+                        {% for message in messages %}
+                        <div class="alert alert-{{ message.tags }} alert-dismissible">
+                            <button type="button" class="close" data-dismiss="alert">&times;</button>
+                            {{ message }}
+                        </div>
+                        {% endfor %}
+                    {% endif %}
+
+                    <form method="post" enctype="multipart/form-data" novalidate>
+                        {% csrf_token %}
+                        
+                        <div class="form-group">
+                            <label for="{{ form.file.id_for_label }}" class="font-weight-bold">
+                                {% trans "Select Resume File" %}
+                            </label>
+                            <div class="custom-file">
+                                {{ form.file }}
+                                <label class="custom-file-label" for="{{ form.file.id_for_label }}">
+                                    {% trans "Choose file..." %}
+                                </label>
+                            </div>
+                            {% if form.file.help_text %}
+                                <small class="form-text text-muted">{{ form.file.help_text }}</small>
+                            {% endif %}
+                            {% if form.file.errors %}
+                                <div class="text-danger small mt-1">{{ form.file.errors }}</div>
+                            {% endif %}
+                        </div>
+                        
+                        <div class="form-group text-center mt-4">
+                            <button type="submit" class="btn btn-primary btn-lg btn-block">
+                                <i class="fas fa-upload"></i> {% trans "Upload & Process Resume" %}
+                            </button>
+                        </div>
+                        
+                        <div class="text-center mt-3">
+                            <p class="text-muted">
+                                {% trans "Supported formats: PDF, DOC, DOCX (Max 5MB)" %}
+                            </p>
+                            <p class="text-muted">
+                                {% trans "After upload, AI will analyze your resume and extract skills, experience, etc." %}
+                            </p>
+                        </div>
+                    </form>
+                    
+                </div>
+                
+            </div>
+            <!-- Tips -->
+            <div class="card shadow-sm mt-4">
+                <div class="card-body">
+                    <h6><i class="bi bi-lightbulb text-warning me-2"></i>{% trans "Tips for better results" %}</h6>
+                    <ul class="mb-0">
+                        <li>{% trans "Use clear section headings (Experience, Education, Skills)" %}</li>
+                        <li>{% trans "List specific technical skills and tools" %}</li>
+                        <li>{% trans "Include certifications and degrees" %}</li>
+                        <li>{% trans "Keep formatting simple and clean" %}</li>
+                        <li>{% trans "Update your resume regularly" %}</li>
+                    </ul>
+                
+                 <!-- نصيحة إضافية -->
+                  
+            <div class="text-center mt-4">
+                <a href="{% url 'resumes:my' %}" class="btn btn-outline-secondary">
+                    <i class="fas fa-arrow-left"></i> {% trans "Back to My Resumes" %}
+                </a>
+            </div>
+            </div>
+            </div>
+           </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+    .custom-file-input ~ .custom-file-label::after {
+        content: "{% trans 'Browse' %}";
+    }
+    .custom-file-label {
+        border-radius: 0.5rem;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+    .card {
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+</style>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    // تحديث اسم الملف المختار في الـ label
+    $('.custom-file-input').on('change', function() {
+        let fileName = $(this).val().split('\\').pop();
+        $(this).next('.custom-file-label').addClass("selected").html(fileName || "{% trans 'Choose file...' %}");
+    });
+</script>
+{% endblock %}

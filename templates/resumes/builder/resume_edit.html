@@ -1,0 +1,128 @@
+<!-- templates/resumes/builder/resume_edit.html -->
+<!-- تم إنشاء هذا القالب لتعديل السيرة الذاتية المبنية -->
+{% extends "base/base.html" %}
+{% load static i18n custom_filters %}
+
+{% block title %}{% trans "Edit Resume" %} - منصة توظيف ذكية{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <div class="card mt-3">
+                <div class="card-header">
+                    <h3 class="card-title">
+                        <i class="fas fa-edit mr-2"></i>{{ title }}
+                    </h3>
+                    <div class="card-tools">
+                        <a href="{% url 'resumes_builder:resume_detail' pk=object.id %}" class="btn btn-sm btn-secondary">
+                            <i class="fas fa-arrow-left mr-1"></i>{% trans "Back to Resume" %}
+                        </a>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <form method="post">
+                        {% csrf_token %}
+                        
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="form-group">
+                                    <label for="{{ form.title.id_for_label }}">{% trans "Resume Title" %} *</label>
+                                    {{ form.title }}
+                                    {% if form.title.errors %}
+                                    <div class="text-danger">
+                                        {{ form.title.errors }}
+                                    </div>
+                                    {% endif %}
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="{{ form.summary.id_for_label }}">{% trans "Professional Summary" %}</label>
+                                    {{ form.summary }}
+                                    {% if form.summary.errors %}
+                                    <div class="text-danger">
+                                        {{ form.summary.errors }}
+                                    </div>
+                                    {% endif %}
+                                    <small class="form-text text-muted">
+                                        {% trans "Brief summary of your professional background and career objectives" %}
+                                    </small>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-4">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h5 class="card-title mb-0">
+                                            <i class="fas fa-cog mr-2"></i>{% trans "Settings" %}
+                                        </h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="form-group">
+                                            <div class="custom-control custom-switch">
+                                                {{ form.is_default }}
+                                                <label for="{{ form.is_default.id_for_label }}" >
+                                                    {% trans "Set as default resume" %}
+                                                </label>
+                                            </div>
+                                            <small class="form-text text-muted">
+                                                {% trans "This resume will be used by default for job matching" %}
+                                            </small>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <div class="custom-control custom-switch">
+                                                {{ form.is_active }}
+                                                <label for="{{ form.is_active.id_for_label }}">
+                                                    {% trans "Active" %}
+                                                </label>
+                                            </div>
+                                            <small class="form-text text-muted">
+                                                {% trans "Inactive resumes won't be shown in job matching" %}
+                                            </small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="row mt-3">
+                            <div class="col-12">
+                                <div class="d-flex justify-content-between">
+                                    <a href="{% url 'resumes_builder:resume_detail' pk=object.id %}" class="btn btn-secondary">
+                                        <i class="fas fa-times mr-1"></i>{% trans "Cancel" %}
+                                    </a>
+                                    <button type="submit" class="btn btn-primary">
+                                        <i class="fas fa-save mr-1"></i>{% trans "Save Changes" %}
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // تحسين واجهة المستخدم للنموذج
+    const titleField = document.getElementById('{{ form.title.id_for_label }}');
+    const summaryField = document.getElementById('{{ form.summary.id_for_label }}');
+    
+    if (titleField) {
+        titleField.classList.add('form-control');
+        titleField.placeholder = '{% trans "e.g., Software Developer Resume" %}';
+    }
+    
+    if (summaryField) {
+        summaryField.classList.add('form-control');
+        summaryField.rows = 6;
+        summaryField.placeholder = '{% trans "e.g., Experienced software developer with 5+ years in web development..." %}';
+    }
+});
+</script>
+{% endblock %}

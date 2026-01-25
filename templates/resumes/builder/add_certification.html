@@ -1,0 +1,155 @@
+<!-- templates/resumes/builder/add_certification.html -->
+<!-- تم إنشاء هذا القالب لإضافة شهادة -->
+{% extends "base/base.html" %}
+{% load static i18n custom_filters %}
+
+{% block title %}{{ title }} - منصة توظيف ذكية{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <div class="card mt-3">
+                <div class="card-header">
+                    <h3 class="card-title">
+                        <i class="fas fa-certificate mr-2"></i>{{ title }}
+                    </h3>
+                    <div class="card-tools">
+                        <a href="{% url 'resumes_builder:resume_detail' pk=resume.id %}" class="btn btn-sm btn-secondary">
+                            <i class="fas fa-arrow-left mr-1"></i>{% trans "Back to Resume" %}
+                        </a>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <form method="post">
+                        {% csrf_token %}
+                        
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="{{ form.name.id_for_label }}">{% trans "Certification Name" %} *</label>
+                                    {{ form.name }}
+                                    {% if form.name.errors %}
+                                    <div class="text-danger">
+                                        {{ form.name.errors }}
+                                    </div>
+                                    {% endif %}
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="{{ form.issuing_organization.id_for_label }}">{% trans "Issuing Organization" %} *</label>
+                                    {{ form.issuing_organization }}
+                                    {% if form.issuing_organization.errors %}
+                                    <div class="text-danger">
+                                        {{ form.issuing_organization.errors }}
+                                    </div>
+                                    {% endif %}
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="{{ form.issue_date.id_for_label }}">{% trans "Issue Date" %} *</label>
+                                    {{ form.issue_date }}
+                                    {% if form.issue_date.errors %}
+                                    <div class="text-danger">
+                                        {{ form.issue_date.errors }}
+                                    </div>
+                                    {% endif %}
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="{{ form.expiry_date.id_for_label }}">{% trans "Expiry Date" %}</label>
+                                    {{ form.expiry_date }}
+                                    {% if form.expiry_date.errors %}
+                                    <div class="text-danger">
+                                        {{ form.expiry_date.errors }}
+                                    </div>
+                                    {% endif %}
+                                    <small class="form-text text-muted">
+                                        {% trans "Leave empty if certification does not expire" %}
+                                    </small>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="{{ form.credential_id.id_for_label }}">{% trans "Credential ID" %}</label>
+                                    {{ form.credential_id }}
+                                    {% if form.credential_id.errors %}
+                                    <div class="text-danger">
+                                        {{ form.credential_id.errors }}
+                                    </div>
+                                    {% endif %}
+                                    <small class="form-text text-muted">
+                                        {% trans "Optional: Certificate ID or verification number" %}
+                                    </small>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="{{ form.credential_url.id_for_label }}">{% trans "Credential URL" %}</label>
+                                    {{ form.credential_url }}
+                                    {% if form.credential_url.errors %}
+                                    <div class="text-danger">
+                                        {{ form.credential_url.errors }}
+                                    </div>
+                                    {% endif %}
+                                    <small class="form-text text-muted">
+                                        {% trans "Link to verify certification online" %}
+                                    </small>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="row mt-3">
+                            <div class="col-12">
+                                <div class="d-flex justify-content-between">
+                                    <a href="{% url 'resumes_builder:resume_detail' pk=resume.id %}" class="btn btn-secondary">
+                                        <i class="fas fa-times mr-1"></i>{% trans "Cancel" %}
+                                    </a>
+                                    <button type="submit" class="btn btn-primary">
+                                        <i class="fas fa-plus mr-1"></i>{% trans "Add Certification" %}
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // تحسين واجهة المستخدم للنموذج
+    const formFields = ['name', 'issuing_organization', 'issue_date', 'expiry_date', 'credential_id', 'credential_url'];
+    
+    formFields.forEach(fieldName => {
+        const field = document.getElementById('{{ form.name.id_for_label }}'.replace('name', fieldName));
+        if (field) {
+            field.classList.add('form-control');
+        }
+    });
+    
+    // تعديل حقول التاريخ
+    const issueDate = document.getElementById('{{ form.issue_date.id_for_label }}');
+    const expiryDate = document.getElementById('{{ form.expiry_date.id_for_label }}');
+    
+    if (issueDate) {
+        issueDate.type = 'date';
+    }
+    
+    if (expiryDate) {
+        expiryDate.type = 'date';
+    }
+    
+    // تعديل حقول الروابط
+    const credentialUrl = document.getElementById('{{ form.credential_url.id_for_label }}');
+    
+    if (credentialUrl) {
+        credentialUrl.placeholder = 'https://example.com/certificate';
+    }
+});
+</script>
+{% endblock %}

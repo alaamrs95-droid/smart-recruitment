@@ -1,0 +1,161 @@
+<!-- templates/jobs/analytics_dashboard.html -->
+{% extends "base/base.html" %}
+{% load i18n static %}
+
+{% block title %}{% trans "Job Analytics" %} - منصة توظيف ذكية{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <div class="card mt-3">
+                <div class="card-header">
+                    <h3 class="card-title">
+                        <i class="fas fa-chart-line"></i> {% trans "Jobs Analytics Dashboard" %}
+                    </h3>
+                </div>
+
+                <div class="card-body">
+
+                    <!-- الإحصائيات العامة -->
+                    <div class="row">
+                        <div class="col-lg-3 col-6">
+                            <div class="small-box bg-info">
+                                <div class="inner">
+                                    <h3>{{ total_stats.total_jobs }}</h3>
+                                    <p>{% trans "Total Jobs" %}</p>
+                                </div>
+                                <div class="icon">
+                                    <i class="fas fa-briefcase"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-6">
+                            <div class="small-box bg-success">
+                                <div class="inner">
+                                    <h3>{{ total_stats.active_jobs }}</h3>
+                                    <p>{% trans "Active Jobs" %}</p>
+                                </div>
+                                <div class="icon">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-6">
+                            <div class="small-box bg-warning">
+                                <div class="inner">
+                                    <h3>{{ total_stats.total_applications }}</h3>
+                                    <p>{% trans "Total Applications" %}</p>
+                                </div>
+                                <div class="icon">
+                                    <i class="fas fa-users"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-6">
+                            <div class="small-box bg-danger">
+                                <div class="inner">
+                                    <h3>{{ total_stats.avg_conversion|floatformat:1 }}%</h3>
+                                    <p>{% trans "Avg Conversion Rate" %}</p>
+                                </div>
+                                <div class="icon">
+                                    <i class="fas fa-percent"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- جدول أداء الوظائف -->
+                    <div class="row mt-4">
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h3 class="card-title">
+                                        <i class="fas fa-clipboard-list"></i>
+                                        {% trans "Jobs Performance" %}
+                                    </h3>
+                                </div>
+
+                                <div class="card-body table-responsive p-0">
+                                    <table class="table table-hover text-nowrap">
+                                        <thead>
+                                            <tr>
+                                                <th>{% trans "Job Title" %}</th>
+                                                <th>{% trans "Applications" %}</th>
+                                                <th>{% trans "Excellent" %}</th>
+                                                <th>{% trans "Good" %}</th>
+                                                <th>{% trans "Accepted" %}</th>
+                                                <th>{% trans "Conversion Rate" %}</th>
+                                                <th>{% trans "Status" %}</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {% for item in jobs_performance %}
+                                            <tr>
+                                                <td>
+                                                    <a href="{% url 'jobs:detail' pk=item.job.id %}">
+                                                        {{ item.job.title }}
+                                                    </a>
+                                                </td>
+                                                <td>{{ item.applications }}</td>
+                                                <td>
+                                                    <span class="badge badge-success">
+                                                        {{ item.excellent }}
+                                                    </span>
+                                                </td>
+                                                <td>
+                                                    <span class="badge badge-info">
+                                                        {{ item.good }}
+                                                    </span>
+                                                </td>
+                                                <td>
+                                                    <span class="badge badge-primary">
+                                                        {{ item.accepted }}
+                                                    </span>
+                                                </td>
+                                                <td>
+                                                    {{ item.conversion_rate }}%
+                                                </td>
+                                                <td>
+                                                    {% if item.status == "Open" %}
+                                                        <span class="badge badge-success">{% trans "Open" %}</span>
+                                                    {% else %}
+                                                        <span class="badge badge-secondary">{% trans "Closed" %}</span>
+                                                    {% endif %}
+                                                </td>
+                                            </tr>
+                                            {% empty %}
+                                            <tr>
+                                                <td colspan="7" class="text-center text-muted">
+                                                    {% trans "No analytics data available yet." %}
+                                                </td>
+                                            </tr>
+                                            {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+    .small-box {
+        border-radius: 0.5rem;
+    }
+    .table th, .table td {
+        vertical-align: middle;
+    }
+</style>
+{% endblock %}

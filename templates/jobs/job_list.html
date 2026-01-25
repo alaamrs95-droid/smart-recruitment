@@ -1,0 +1,106 @@
+<!-- templates/jobs/job_list.html -->
+{% extends "base/base.html" %}
+{% load static i18n %}
+
+{% block title %}{% trans "Job Listings" %} - منصة توظيف ذكية{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <div class="card mt-3">
+                <div class="card-header">
+                    <h3 class="card-title"><i class="fas fa-briefcase"></i> {% trans "Available Jobs" %}</h3>
+                </div>
+                <div class="card-body">
+                    <!-- فلترة البحث والمهارات -->
+                    <form method="get" class="form-inline mb-4">
+                        <div class="input-group mr-2">
+                            <input type="text" name="q" class="form-control" placeholder="{% trans 'Search by title or description...' %}" value="{{ search_query }}">
+                            <div class="input-group-append">
+                                <button class="btn btn-outline-secondary" type="submit"><i class="fas fa-search"></i></button>
+                            </div>
+                        </div>
+                        <div class="input-group">
+                            <input type="text" name="skill" class="form-control" placeholder="{% trans 'Filter by skill...' %}" value="{{ skill_filter }}">
+                            <div class="input-group-append">
+                                <button class="btn btn-outline-secondary" type="submit"><i class="fas fa-filter"></i></button>
+                            </div>
+                        </div>
+                    </form>
+                    
+                    <!-- عرض الوظائف كـ cards -->
+                    <div class="row">
+                        {% for job in jobs %}
+                        <div class="col-md-6 col-lg-4 mb-4">
+                            <div class="card card-outline card-primary h-100">
+                                <div class="card-header">
+                                    <h5 class="card-title mb-0">
+                                        <a href="{% url 'jobs:detail' pk=job.id %}">{{ job.title }}</a>
+                                    </h5>
+                                    <small class="text-muted">{{ job.employer.username }} • {{ job.created_at|date:"M d, Y" }}</small>
+                                </div>
+                                <div class="card-body">
+                                    <p>{{ job.description|truncatewords:30 }}</p>
+                                    
+                                    {% if job.required_skills %}
+                                    <div class="mb-2">
+                                        <strong>{% trans "Required Skills:" %}</strong>
+                                        {% for skill in job.required_skills %}
+                                        <span class="badge badge-pill badge-danger mr-1">{{ skill }}</span>
+                                        {% endfor %}
+                                    </div>
+                                    {% endif %}
+                                    
+                                    {% if job.languages %}
+                                    <div class="mb-2">
+                                        <strong>{% trans "Languages:" %}</strong>
+                                        {% for lang in job.languages %}
+                                        <span class="badge badge-pill badge-info mr-1">{{ lang }}</span>
+                                        {% endfor %}
+                                    </div>
+                                    {% endif %}
+                                    
+                                    <div>
+                                        {% if job.is_active %}
+                                        <span class="badge badge-success">{% trans "Active" %}</span>
+                                        {% else %}
+                                        <span class="badge badge-secondary">{% trans "Inactive" %}</span>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                                <div class="card-footer text-center">
+                                    <a href="{% url 'jobs:detail' pk=job.id %}" class="btn btn-primary btn-sm">
+                                        {% trans "View Details" %}
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        {% empty %}
+                        <div class="col-12 text-center py-5">
+                            <p class="text-muted lead">{% trans "No jobs match your search." %}</p>
+                            <a href="{% url 'jobs:list' %}" class="btn btn-outline-secondary">{% trans "Clear Filters" %}</a>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+    .card {
+        transition: transform 0.2s;
+    }
+    .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+    .badge-pill {
+        font-size: 0.85rem;
+    }
+</style>
+{% endblock %}

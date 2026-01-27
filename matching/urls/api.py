@@ -1,6 +1,6 @@
 # matching/urls/api.py
 from django.urls import path
-from matching.views.api import MatchResumeJobsAPIView,MatchJobsResumeAPIView
+from matching.views.api import MatchResumeJobsAPIView,MatchJobsResumeAPIView,MLPredictAPIView
 
 urlpatterns = [
     path(
@@ -12,6 +12,11 @@ urlpatterns = [
         "match/job/<int:job_id>/resumes/",
         MatchJobsResumeAPIView.as_view(),
         name="match-job-resumes"
+    ),
+    path(
+        "ml/predict/",
+        MLPredictAPIView.as_view(),
+        name="ml-predict"
     ),
 ]
 

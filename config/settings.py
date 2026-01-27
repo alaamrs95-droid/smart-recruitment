@@ -202,3 +202,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 CSRF_TRUSTED_ORIGINS = ['https://*.onrender.com']
+
+# Machine Learning service (Hugging Face Space) settings
+ML_SERVICE_URL = config('ML_SERVICE_URL', default=None)
+HF_TOKEN = config('HF_TOKEN', default=None)
+ML_SERVICE_TIMEOUT = config('ML_SERVICE_TIMEOUT', default=10, cast=int)
+ML_SERVICE_CACHE_TTL = config('ML_SERVICE_CACHE_TTL', default=3600, cast=int)

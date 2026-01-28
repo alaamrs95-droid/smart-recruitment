@@ -2,9 +2,11 @@
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from jobs.models import Job, Application
-from resumes.models import Resume,redirect
+from resumes.models import Resume
 from matching.services.matcher import calculate_match_score
 from django.db.models import Count, Avg
+from django.shortcuts import redirect
+
 
 @login_required
 def job_analytics(request):

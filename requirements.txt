@@ -1,10 +1,15 @@
-Django>=4.2
+Django==5.2.10
+
 djangorestframework
 djangorestframework-simplejwt
+PyJWT
+
 dj-database-url
 python-decouple
 python-dotenv
 psycopg2-binary
+
 requests
+
 gunicorn
 whitenoise

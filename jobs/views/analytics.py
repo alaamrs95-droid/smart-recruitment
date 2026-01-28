@@ -2,7 +2,7 @@
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from jobs.models import Job, Application
-from resumes.models import Resume
+from resumes.models import Resume,redirect
 from matching.services.matcher import calculate_match_score
 from django.db.models import Count, Avg
 

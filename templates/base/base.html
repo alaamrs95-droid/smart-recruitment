@@ -1,14 +1,22 @@
 <!-- templates/base/base.html -->
-{% load static i18n %}
+{% load i18n %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>{% block title %}AI Job Matcher{% endblock %}</title>
 
+    {# ---------------------------
+       Static files from GitHub Pages
+       --------------------------- #}
+    {% comment %}
+    STATIC_URL الآن يشير إلى GitHub Pages
+    مثال: https://alaamrs95-droid.github.io/smart-recruitment-static/static/
+    {% endcomment %}
+
     <!-- AdminLTE CSS -->
-    <link rel="stylesheet" href="{% static 'adminlte/plugins/fontawesome-free/css/all.min.css' %}">
-    <link rel="stylesheet" href="{% static 'adminlte/dist/css/adminlte.min.css' %}">
+    <link rel="stylesheet" href="{{ STATIC_URL }}adminlte/plugins/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="{{ STATIC_URL }}adminlte/dist/css/adminlte.min.css">
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -101,9 +109,9 @@
 </div>
 
 <!-- AdminLTE JS -->
-<script src="{% static 'adminlte/plugins/jquery/jquery.min.js' %}"></script>
-<script src="{% static 'adminlte/plugins/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
-<script src="{% static 'adminlte/dist/js/adminlte.min.js' %}"></script>
+<script src="{{ STATIC_URL }}adminlte/plugins/jquery/jquery.min.js"></script>
+<script src="{{ STATIC_URL }}adminlte/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="{{ STATIC_URL }}adminlte/dist/js/adminlte.min.js"></script>
 
 </body>
 </html>

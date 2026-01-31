@@ -140,9 +140,7 @@ USE_TZ = True
 
 STATIC_URL = "https://alaamrs95-droid.github.io/smart-recruitment-static/static/"
 
-STATICFILES_DIRS = [
-    BASE_DIR / "static",
-]
+#STATICFILES_DIRS = [BASE_DIR / "static",]
 
 # STATIC_ROOT = BASE_DIR / "staticfiles"
 # STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
